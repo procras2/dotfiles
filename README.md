@@ -1,1 +1,8 @@
-Common dotfiles for use on various boxen
+# dotfiles
+Common dotfiles.
+
+Useful **Dotfiles** for linux boxes.
+.bashrc
+.profile
+.Xresources
+.dircolors
