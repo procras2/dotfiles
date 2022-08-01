@@ -1,44 +1,44 @@
 !!! COLORS
 !! special
-*.foreground:   #93a1a1
+!*.foreground:   #93a1a1
 !!*.foreground:   #FFFFFF
-*.background:   #002b36
+!*.background:   #002b36
 !!*.background:   #A9A9A9
-*.cursorColor:  #93a1a1
+!*.cursorColor:  #93a1a1
 !
 !! black
-*.color0:       #A9A9A9
-*.color8:       #657b83
+!*.color0:       #A9A9A9
+!*.color8:       #657b83
 !
 !! red
-*.color1:       #dc322f
+!*.color1:       #dc322f
 !!*.color1:       #8B0000
-*.color9:       #dc322f
+!*.color9:       #dc322f
 !!*.color9:       #FF0000
 !
 !! green
-*.color2:       #859900
-*.color10:      #859900
+!*.color2:       #859900
+!*.color10:      #859900
 !
 !! yellow
-*.color3:       #b58900
-*.color11:      #b58900
+!*.color3:       #b58900
+!*.color11:      #b58900
 !
 !! blue
-*.color4:       #268bd2
-*.color12:      #268bd2
+!*.color4:       #268bd2
+!*.color12:      #268bd2
 !
 !! magenta
-*.color5:       #6c71c4
-*.color13:      #6c71c4
+!*.color5:       #6c71c4
+!*.color13:      #6c71c4
 !
 !! cyan
-*.color6:       #2aa198
-*.color14:      #2aa198
+!*.color6:       #2aa198
+!*.color14:      #2aa198
 !
 !! white
-*.color7:       #93a1a1
-*.color15:      #fdf6e3
+!*.color7:       #93a1a1
+!*.color15:      #fdf6e3
 
 Xft.dpi: 96
 !*.font: Consolas:pixelsize22:antialias=true:autohint=true
@@ -54,8 +54,8 @@ Xft.rgba: rgb
 xterm*termName:           xterm-256color
 Xterm*locale:             true
 xterm*VT100.geometry:     80x32
-xterm*background:         black
-xterm*foreground:         white
+!xterm*background:         black
+!xterm*foreground:         white
 xterm*faceName:           Ubuntu Mono
 !xterm*faceName:           Liberation Mono
 !xterm*faceName:           Terminus:style=Regular
@@ -92,14 +92,7 @@ URxvt.shading: 5
 URxvt.intensityStyles: false
 URxvt.depth: 32
 URxvt.font: xft:UbuntuMono Nerd Font:size=14, \
-            xft:Inconsolata Nerd Font Mono:size=14, \
-            xft:DejaVuSansMono Nerd Font:size=14, \
-            xft:DroidSansMono Nerd Font:size=14, \
-            xft:FuraMono Nerd Font:size=14, \
-            xft:RobotoMono Nerd Font:size=14, \
-            xft:Noto Sans Mono:size=14
-!! xft:Monospace:style=Medium:antialias=false
-!URxvt*font: xft:Liberation\ Mono:size=14
+            xft:Inconsolata Nerd Font Mono:size=14
 URxvt.saveLines: 2000
 URxvt.scrollBar: False
 URxvt.scrollBar_right: False
@@ -107,6 +100,8 @@ URxvt.cursorColor: pink
 URxvt.cursorBlink: 1
 
 !! Extensions
+URxvt*perl-lib: /home/adrian/.urxvt-perl
+URxvt*perl-ext: unichr
 URxvt.perl-ext-common: fullscreen,default,matcher,resize-font,url-select,keyboard-select,clipboard
 URxvt.colorUL: #4682B4
 !! url-select
