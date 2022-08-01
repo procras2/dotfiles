@@ -1,44 +1,71 @@
 !!! COLORS
-!! special
-*.foreground:   #93a1a1
+! gruvbox dark
+*.foreground: #ebdbb2
+*.background: #282828
+*.cursorColor: pink
+! black
+*.color0: #282828
+*.color8: #928374
+! red
+*.color1: #cc241d
+*.color9: #fb4934
+! green
+*.color2: #98971a
+*.color10: #b8bb26
+! yellow
+*.color3: #d79921
+*.color11: #fabd2f
+! blue
+*.color4: #458588
+*.color12: #83a598
+! magenta
+*.color5: #b16286
+*.color13: #d3869b
+! cyan
+*.color6: #689d6a
+*.color14: #8ec07c
+!! white
+*.color7: #a89984
+*.color15: #ebdbb2
+!
+!!*.foreground:   #93a1a1
 !!*.foreground:   #FFFFFF
-*.background:   #002b36
+!!*.background:   #002b36
 !!*.background:   #A9A9A9
-*.cursorColor:  #93a1a1
 !
 !! black
-*.color0:       #A9A9A9
-*.color8:       #657b83
+!!*.color0:       #A9A9A9
+!!*.color8:       #657b83
 !
 !! red
-*.color1:       #dc322f
+!!*.color1:       #dc322f
 !!*.color1:       #8B0000
-*.color9:       #dc322f
+!!*.color9:       #dc322f
 !!*.color9:       #FF0000
 !
 !! green
-*.color2:       #859900
-*.color10:      #859900
+!!*.color2:       #859900
+!!*.color10:      #859900
 !
 !! yellow
-*.color3:       #b58900
-*.color11:      #b58900
+!!*.color3:       #b58900
+!!*.color11:      #b58900
 !
 !! blue
-*.color4:       #268bd2
-*.color12:      #268bd2
+!!*.color4:       #268bd2
+!!*.color12:      #268bd2
 !
 !! magenta
-*.color5:       #6c71c4
-*.color13:      #6c71c4
+!!*.color5:       #6c71c4
+!!*.color13:      #6c71c4
 !
 !! cyan
-*.color6:       #2aa198
-*.color14:      #2aa198
+!!*.color6:       #2aa198
+!!*.color14:      #2aa198
 !
 !! white
-*.color7:       #93a1a1
-*.color15:      #fdf6e3
+!*.color7:       #93a1a1
+!*.color15:      #fdf6e3
 
 Xft.dpi: 96
 !*.font: Consolas:pixelsize22:antialias=true:autohint=true
@@ -138,9 +165,7 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt*buffered: true
 URxvt*letterSpace: -1
-!URxvt*background: #000000
 URxvt*urlLauncher: firefox
-!URxvt*foreground: #ffffff
 URxvt*utf8: true
 URxvt*locale: true
 URxvt.keysym.M-s:           perl:keyboard-select:search
@@ -173,32 +198,55 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 !URxvt*color15:                 #fdf6e3
 
 ! Dark
-!URxvt*background:              #002b36
-URxvt*background:              #000000
-!URxvt*foreground:              #839496
-URxvt*foreground:              #ffffff
-URxvt*fadeColor:               #002b36
+!URxvt*background:              #000000
+!URxvt*foreground:              #ffffff
+!URxvt*fadeColor:               #002b36
+!URxvt*cursorColor:             #93a1a1
+!URxvt*pointerColorBackground:  #586e75
+!URxvt*pointerColorForeground:  #93a1a1
+!
+!URxvt*color0:                  #073642
+!URxvt*color1:                  #dc322f
+!URxvt*color2:                  #859900
+!URxvt*color3:                  #b58900
+!URxvt*color4:                  #268bd2
+!URxvt*color5:                  #d33682
+!URxvt*color6:                  #2aa198
+!URxvt*color7:                  #eee8d5
+!URxvt*color8:                  #002b36
+!URxvt*color9:                  #cb4b16
+!URxvt*color10:                 #586e75
+!URxvt*color11:                 #657b83
+!URxvt*color12:                 #839496
+!URxvt*color13:                 #6c71c4
+!URxvt*color14:                 #93a1a1
+!URxvt*color15:                 #fdf6e3
+
+! Gruvbox dark
+URxvt*background:              #32302f
+URxvt*foreground:              #ebdbb2
+URxvt*fadeColor:               #928374
 URxvt*cursorColor:             #93a1a1
 URxvt*pointerColorBackground:  #586e75
 URxvt*pointerColorForeground:  #93a1a1
 
-URxvt*color0:                  #073642
-URxvt*color1:                  #dc322f
-URxvt*color2:                  #859900
-URxvt*color3:                  #b58900
-URxvt*color4:                  #268bd2
-URxvt*color5:                  #d33682
-URxvt*color6:                  #2aa198
-URxvt*color7:                  #eee8d5
-URxvt*color8:                  #002b36
-URxvt*color9:                  #cb4b16
-URxvt*color10:                 #586e75
-URxvt*color11:                 #657b83
-URxvt*color12:                 #839496
-URxvt*color13:                 #6c71c4
-URxvt*color14:                 #93a1a1
-URxvt*color15:                 #fdf6e3
-
+URxvt*color0:                  #282828
+URxvt*color1:                  #cc241d
+URxvt*color2:                  #98971a
+URxvt*color3:                  #d79921
+URxvt*color4:                  #458588
+URxvt*color5:                  #b16286
+URxvt*color6:                  #689d6a
+URxvt*color7:                  #a89984
+URxvt*color8:                  #928374
+URxvt*color9:                  #fb4934
+URxvt*color10:                 #b8bb26
+URxvt*color11:                 #fabd2f
+URxvt*color12:                 #83a598
+URxvt*color13:                 #d3869b
+URxvt*color14:                 #8ec07c
+URxvt*color15:                 #ebdbb2
+!
 !!Source http://github.com/altercation/solarized
 !*background: #002b36
 !*foreground: #657b83
