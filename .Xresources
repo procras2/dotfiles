@@ -223,14 +223,14 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 !URxvt*color15:                 #fdf6e3
 
 ! Gruvbox dark
-URxvt*background:              #32302f
+URxvt*background:              #282828
 URxvt*foreground:              #ebdbb2
 URxvt*fadeColor:               #928374
 URxvt*cursorColor:             #93a1a1
 URxvt*pointerColorBackground:  #586e75
 URxvt*pointerColorForeground:  #93a1a1
 
-URxvt*color0:                  #282828
+URxvt*color0:                  #504945
 URxvt*color1:                  #cc241d
 URxvt*color2:                  #98971a
 URxvt*color3:                  #d79921

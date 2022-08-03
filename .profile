@@ -2,6 +2,12 @@
 # ~/.bash_profile
 #
 
+# Issue the fortune
+
+if test -f /usr/bin/forture; then
+  /usr/bin/fortune
+fi
+
 if test -n "BASH_VERSION"; then
     #include .bashrc if it exists
     if test -f "$HOME/.bashrc"; then
@@ -9,13 +15,6 @@ if test -n "BASH_VERSION"; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-export PATH
-
-MAILPATH=~/Maildir/procmail.log
-export MAILPATH
+#MAILPATH=~/Maildir/procmail.log
+#export MAILPATH
 
