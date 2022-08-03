@@ -118,13 +118,14 @@ URxvt.transparent: true
 URxvt.shading: 5
 URxvt.intensityStyles: false
 URxvt.depth: 32
-URxvt.font: xft:UbuntuMono Nerd Font:size=14, \
-            xft:Inconsolata Nerd Font Mono:size=14, \
-            xft:DejaVuSansMono Nerd Font:size=14, \
-            xft:DroidSansMono Nerd Font:size=14, \
-            xft:FuraMono Nerd Font:size=14, \
-            xft:RobotoMono Nerd Font:size=14, \
-            xft:Noto Sans Mono:size=14
+URxvt.font: xft:Hack Nerd Font:size=14:autohint=true
+!!xft:UbuntuMono Nerd Font:size=14:autohint=true
+!!xft:Inconsolata Nerd Font Mono:size=14, \
+!!xft:DejaVuSansMono Nerd Font:size=14, \
+!!xft:DroidSansMono Nerd Font:size=14, \
+!!xft:FuraMono Nerd Font:size=14, \
+!!xft:RobotoMono Nerd Font:size=14, \
+!!xft:Noto Sans Mono:size=14
 !! xft:Monospace:style=Medium:antialias=false
 !URxvt*font: xft:Liberation\ Mono:size=14
 URxvt.saveLines: 2000

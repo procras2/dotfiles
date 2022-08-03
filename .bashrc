@@ -192,6 +192,10 @@ PROMPT_COMMAND="__ps1"
 
 #PS1='\[$(tput setaf 82)\]\u@\h:\[$(tput setaf 12)\]\w \[$(tput setaf 82)\]\$ \[$(tput sgr0)\]'
 
+# ------------------------------- GPG -------------------------------
+GPG_TTY=`tty`
+export GPG_TTY
+
 # ----------------------------- keyboard ----------------------------
 
 # escape key mapping we do thin in .xinitrc or in the desktop for gnome

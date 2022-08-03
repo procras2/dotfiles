@@ -201,6 +201,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
   call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
+  Plug 'jamessan/vim-gnupg'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
@@ -212,12 +213,17 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'tpope/vim-surround'
   Plug 'mattn/emmet-vim'
   Plug 'ap/vim-css-color'
-  Plug 'ctrlpvim/ctrlp.vim'
-  "Plug 'lumiliet/vim-twig'
+  Plug 'ctrlpvim/ctrlp.vim' 
+  Plug 'lervag/vimtex'
+  "Plug 'lumiliet/vim-twig' " not needed as twig handeled by djangohtml
   Plug 'morhetz/gruvbox'
   " Devicons must be the very last one
   Plug 'ryanoasis/vim-devicons'
   call plug#end()
+  
+  " vimtex setup
+  let g:tex_flavor = "latex"
+  let g:vimtex_view_method = 'zathura'
 
   " gruvbox setup
   let g:gruvbox_italic = 1    " To enable italics
@@ -361,7 +367,6 @@ noremap <C-p> <C-b>
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
 
-let g:tex_flavor = "latex"
 runtime ftplugin/man.vim
 nmap K :Man <cword><CR>
 
