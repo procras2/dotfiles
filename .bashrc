@@ -16,6 +16,8 @@ export HRULEWIDTH=73
 export EDITOR=vi
 export VISUAL=vi
 export EDITOR_PREFIX=vi
+export SCRIPTS=~/.local/bin/scripts
+mkdir -p "$SCRIPTS" &>/dev/null
 
 test -d ~/.vim/spell && export VIMSPELL=(~/.vim/spell/*.add)
 
@@ -49,34 +51,68 @@ if command -v /usr/bin/dircolors &>/dev/null; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias diff='diff --color'
 fi
 
 # -----------------------------  path -------------------------------
+# We want to add dirs to the path and not replace the path
+# The functions here will either append to the end of the path
+# or prepend to the start of the path.
+# They first check if the argument is already in the path and the
+# they remove it and replace it either at the start or end as requested
+#
+# We use bash parater expansion extensively here
+#
 
 pathappend() {
-  for ARG in "$@"; do
-    test -d "${ARG}" || continue
-    PATH=${PATH//:${ARG}:/:}
-    PATH=${PATH/#${ARG}:/}
-    PATH=${PATH/%:${ARG}/}
-    export PATH="${PATH:+"${PATH}:"}${ARG}"
+  declare arg
+  for arg in "$@"; do
+    test -d "${arg}" || continue
+    PATH=${PATH//:${arg}:/:} # Remove from the middle
+    PATH=${PATH/#${arg}:/}   # Remove from the beginning
+    PATH=${PATH/%:${arg}/}   # Remove from the end
+    export PATH="${PATH:+"${PATH}:"}${arg}"
     done
 }
 
 pathprepend() {
-  for ARG in "$@"; do
-    test -d "${ARG}" || continue
-    PATH=${PATH//:${ARG}:/:}
-    PATH=${PATH/#${ARG}:/}
-    PATH=${PATH/%:${ARG}/}
-    export PATH="${ARG}${PATH:+"${PATH}:"}"
+  declare arg
+  for arg in "$@"; do
+    test -d "${arg}" || continue
+    PATH=${PATH//:${arg}:/:}
+    PATH=${PATH/#${arg}:/}
+    PATH=${PATH/%:${arg}/}
+    export PATH="${arg}${PATH:+":${PATH}"}"
     done
 }
 
+# remember that the last arg will be first in the path
 pathprepend \
-  /home/adrian/bin
+    ~/bin \
+    ~/.local/bin \
+    "$SCRIPTS"
 
-# ------------------------ bash shell options -----------------------
+pathappend \
+    /usr/local/bin \
+    /usr/bin \
+    /usr/local/sbin \
+    /var/lib/flatpak/exports/bin \
+    /usr/lib/jvm/default/bin \
+    /usr/bin/site_perl \
+    /usr/bin/vendor_perl \
+    /usr/bin/core_perl
+
+# --------------------------------- cdpath ----------------------------------
+# cd directly into anything in these directories without the full path
+
+export CDPATH=.:\
+~/repos/github.com:\
+~/repos/github.com/$GITUSER:\
+~/repos/dm4:\
+~/repos:\
+~
+
+# --------------------------- bash shell options ----------------------------
 
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -87,7 +123,7 @@ shopt -s extglob
 #shopt -s nullglob # bug kills complet for some
 #set -o noclobber
 
-# ----------------------------- history -----------------------------
+# -------------------------------- history ----------------------------------
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -102,15 +138,37 @@ shopt -s histappend
 # We will use vi editing of history
 set -o vi
 
-# aliases
-alias c='printf "\e[H\e[2J"'
+# -------------------------------  aliases ----------------------------------
+# We have already defined the colour aliases in the colour section 
+# above
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# --------------------------- smart prompt --------------------------
+alias c='printf "\e[H\e[2J"'
+alias '?'=duck
+
+# Note regarding use of " and ' in expansions
+# If we use " then the expansion happens *at that moment*
+# If we use ' then the expandion happens when the alias is invoked
+# When we use ' then the alias will use any new setting of SCRIPTS
+alias scripts='cd $SCRIPTS'
+
+# ------------------------------- functions ---------------------------------
+
+isosec() {
+    date -u +%Y%m%d%H%M%S "$@"
+} && export -f isosec
+
+cdtemp() {
+    name="$1"
+    mkdir -p "/tmp/$name"
+    cd "/tmp/$name"
+}
+
+# --------------------------- smart prompt ----------------------------------
 
 PROMPT_LONG=50
 PROMPT_MAX=95

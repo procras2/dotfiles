@@ -103,7 +103,11 @@ set viminfo='20,<1000,s1000
 if has("eval") " vim-tiny detection
   let g:loaded_matchparen=1
 endif
-set noshowmatch
+set showmatch
+
+" stop annoying beep in php with showmatch not finding a <
+" when you type >
+au BufWinEnter *.php set mps-=<:>
 
 " wrap around when searching
 set wrapscan
@@ -200,6 +204,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   " github.com/junegunn/vim-plug
 
   call plug#begin('~/.vim/plugged')
+  Plug 'vim-scripts/DrawIt'
   Plug 'vim-airline/vim-airline'
   Plug 'jamessan/vim-gnupg'
   Plug 'vim-airline/vim-airline-themes'
@@ -209,18 +214,25 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'joom/vim-commentary'
   Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
   Plug 'mattn/emmet-vim'
   Plug 'ap/vim-css-color'
-  Plug 'ctrlpvim/ctrlp.vim' 
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'xolox/vim-misc'
+  Plug 'xolox/vim-easytags'
   Plug 'lervag/vimtex'
   "Plug 'lumiliet/vim-twig' " not needed as twig handeled by djangohtml
   Plug 'morhetz/gruvbox'
   " Devicons must be the very last one
   Plug 'ryanoasis/vim-devicons'
   call plug#end()
-  
+
+  " easytags
+  let g:easytags_auto_hightlight = 0
+
   " vimtex setup
   let g:tex_flavor = "latex"
   let g:vimtex_view_method = 'zathura'
@@ -283,6 +295,10 @@ endfunction
 endif
 
 "#######################################################################
+" sql setting
+let g:sql_type_default = 'mysql'
+
+"#######################################################################
 " netrw setting
 let g:netrw_liststyle = 3   " show the tree listing
 let g:netrw_winsize = 0     " set default windowsize to be always equal
@@ -305,7 +321,7 @@ if has("eval")  " vim-tiny detection
 fun! s:DetectBash()
     if getline(1) == '#!/usr/bin/bash' || getline(1) == '#!/bin/bash'
         set ft=bash
-        set shiftwidth=2
+        set shiftwidth=4
     endif
 endfun
 autocmd BufNewFile,BufRead * call s:DetectBash()
@@ -334,6 +350,7 @@ set pastetoggle=<F3>
 map <F4> :set list!<CR>
 map <F5> :set cursorline!<CR>
 map <F7> :set spell!<CR>
+nmap <F8> :TagbarToggle<CR>
 map <F12> :set fdm=indent<CR>
 
 nmap <leader>2 :set paste<CR>i
@@ -358,7 +375,6 @@ noremap <C-p> <C-b>
 
 " Set TMUX window name to name of file
 "au fileopened * !tmux rename-window TESTING
-
 
 " ttyprequired to get mouse working in alacritty
 " set ttymouse=sgr

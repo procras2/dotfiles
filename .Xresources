@@ -83,10 +83,10 @@ Xterm*locale:             true
 xterm*VT100.geometry:     80x32
 xterm*background:         black
 xterm*foreground:         white
-xterm*faceName:           Ubuntu Mono
+xterm*faceName:           Hack Nerd Font
 !xterm*faceName:           Liberation Mono
 !xterm*faceName:           Terminus:style=Regular
-xterm*faceSize:           14
+xterm*faceSize:           12
 xterm*renderFont:         true
 ! xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
@@ -111,6 +111,7 @@ rofi.separator-style:     dash
 
 ! URxvt settings
 !
+!!URxvt*modifier: alt
 URxvt*imLocale: en_GB.UTF-8
 URxvt*termName: rxvt-unicode-256color
 URxvt.transparent: true
@@ -118,7 +119,7 @@ URxvt.transparent: true
 URxvt.shading: 5
 URxvt.intensityStyles: false
 URxvt.depth: 32
-URxvt.font: xft:Hack Nerd Font:size=14:autohint=true
+URxvt.font: xft:Hack Nerd Font:size=12
 !!xft:UbuntuMono Nerd Font:size=14:autohint=true
 !!xft:Inconsolata Nerd Font Mono:size=14, \
 !!xft:DejaVuSansMono Nerd Font:size=14, \
@@ -135,7 +136,7 @@ URxvt.cursorColor: pink
 URxvt.cursorBlink: 1
 
 !! Extensions
-URxvt.perl-ext-common: fullscreen,default,matcher,resize-font,url-select,keyboard-select,clipboard
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select,clipboard
 URxvt.colorUL: #4682B4
 !! url-select
 URxvt.keysym.M-u: perl:url-select:select_next
@@ -153,7 +154,8 @@ URxvt.matcher.button: 1
 !! clipboard
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
-Urxvt*keysym.M-f: perl:fullscreen:switch
+!! fullscreen
+!Urxvt*keysym.M-f: perl:fullscreen:switch
 !
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -165,7 +167,7 @@ URxvt*scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt*buffered: true
-URxvt*letterSpace: -1
+URxvt*letterSpace: 0
 URxvt*urlLauncher: firefox
 URxvt*utf8: true
 URxvt*locale: true
