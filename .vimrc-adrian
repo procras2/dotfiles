@@ -224,7 +224,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-easytags'
   Plug 'lervag/vimtex'
-  "Plug 'lumiliet/vim-twig' " not needed as twig handeled by djangohtml
+  Plug 'lumiliet/vim-twig'
   Plug 'morhetz/gruvbox'
   " Devicons must be the very last one
   Plug 'ryanoasis/vim-devicons'

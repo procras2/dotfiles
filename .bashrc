@@ -11,13 +11,15 @@ esac
 # ---------------------- environment variables ----------------------
 
 export TERM=xterm-256color
-
 export HRULEWIDTH=73
 export EDITOR=vi
 export VISUAL=vi
 export EDITOR_PREFIX=vi
+
 export SCRIPTS=~/.local/bin/scripts
 mkdir -p "$SCRIPTS" &>/dev/null
+export SNIPPETS="$HOME/.local/share/snippets"
+mkdir -p "$SNIPPETS" &>/dev/null
 
 test -d ~/.vim/spell && export VIMSPELL=(~/.vim/spell/*.add)
 
@@ -147,16 +149,29 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Clear the screen
 alias c='printf "\e[H\e[2J"'
+# Use duck script to search the interweb
 alias '?'=duck
+# Make a temporary directory and cd into it
+alias temp='cd $(mktemp -d)'
 
 # Note regarding use of " and ' in expansions
 # If we use " then the expansion happens *at that moment*
 # If we use ' then the expandion happens when the alias is invoked
 # When we use ' then the alias will use any new setting of SCRIPTS
 alias scripts='cd $SCRIPTS'
+alias snippets='cd $SNIPPETS'
 
 # ------------------------------- functions ---------------------------------
+
+gpg-reload() {
+    pkill scdaemon
+    pkill gpg-agent
+    gpg-connect-agent /bye >/dev/null 2>&1
+    gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+    gpgconf --reload gpg-agent
+}
 
 isosec() {
     date -u +%Y%m%d%H%M%S "$@"
