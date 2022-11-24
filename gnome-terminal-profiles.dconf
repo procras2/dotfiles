@@ -1,0 +1,43 @@
+[/]
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'fca31b17-03f7-4bc2-8f4e-b329fd546726']
+
+[:a49b6940-a9ef-4922-b874-574cad1da151]
+background-transparency-percent=29
+bold-color='rgb(250,189,47)'
+bold-color-same-as-fg=false
+cursor-background-color='rgb(235,219,178)'
+cursor-foreground-color='rgb(69,133,136)'
+font='Source Code Pro 16'
+highlight-background-color='rgb(131,165,152)'
+highlight-foreground-color='rgb(251,241,199)'
+palette=['rgb(40,40,40)', 'rgb(204,36,29)', 'rgb(152,151,26)', 'rgb(215,153,33)', 'rgb(69,133,136)', 'rgb(177,98,134)', 'rgb(104,157,106)', 'rgb(168,153,132)', 'rgb(146,131,116)', 'rgb(251,73,52)', 'rgb(184,187,38)', 'rgb(250,189,47)', 'rgb(131,165,152)', 'rgb(211,134,155)', 'rgb(142,192,124)', 'rgb(235,219,178)']
+scrollbar-policy='never'
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='Gruvbox'
+
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(40,40,40)'
+bold-is-bright=true
+cursor-background-color='rgb(234,222,183)'
+cursor-colors-set=true
+cursor-foreground-color='rgb(69,135,135)'
+font='UbuntuMono Nerd Font 14'
+foreground-color='rgb(251,241,199)'
+highlight-background-color='rgb(134,164,155)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(234,220,182)'
+login-shell=false
+palette=['rgb(85,85,85)', 'rgb(204,36,29)', 'rgb(152,151,26)', 'rgb(215,153,33)', 'rgb(69,133,136)', 'rgb(177,98,134)', 'rgb(104,157,106)', 'rgb(168,153,132)', 'rgb(146,131,116)', 'rgb(251,73,52)', 'rgb(184,187,38)', 'rgb(250,189,47)', 'rgb(131,165,152)', 'rgb(211,134,155)', 'rgb(142,192,124)', 'rgb(235,219,178)']
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=false
+
+[:fca31b17-03f7-4bc2-8f4e-b329fd546726]
+background-color='rgb(0,0,0)'
+font='Source Code Pro 14'
+foreground-color='rgb(255,255,255)'
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-system-font=false
+use-theme-colors=false
+visible-name='term like'
