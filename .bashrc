@@ -12,9 +12,9 @@ esac
 
 export TERM=xterm-256color
 export HRULEWIDTH=73
-export EDITOR=vi
-export VISUAL=vi
-export EDITOR_PREFIX=vi
+export EDITOR=vim
+export VISUAL=vim
+export EDITOR_PREFIX=vim
 
 export SCRIPTS=~/.local/bin/scripts
 mkdir -p "$SCRIPTS" &>/dev/null

@@ -208,6 +208,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'vim-airline/vim-airline'
   Plug 'jamessan/vim-gnupg'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -281,7 +283,8 @@ endfunction
     endif
     let g:airline_symbols.space = "\ua0"
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#show_buffers = 0
+    let g:airline#extensions#tabline#show_buffers = 1
+    let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline_theme = 'gruvbox'
 
   " devicons set up
