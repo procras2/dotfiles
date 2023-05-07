@@ -269,6 +269,10 @@ PROMPT_COMMAND="__ps1"
 GPG_TTY=`tty`
 export GPG_TTY
 
+# ------------------------------- FZF -------------------------------
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
+
 # ----------------------------- keyboard ----------------------------
 
 # escape key mapping we do thin in .xinitrc or in the desktop for gnome
