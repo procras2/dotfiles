@@ -204,6 +204,11 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   " github.com/junegunn/vim-plug
 
   call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+  Plug 'junegunn/fzf.vim'
+  Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
   Plug 'vim-scripts/DrawIt'
   Plug 'vim-airline/vim-airline'
   Plug 'jamessan/vim-gnupg'
@@ -230,6 +235,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'morhetz/gruvbox'
   " Devicons must be the very last one
   Plug 'ryanoasis/vim-devicons'
+  Plug 'ron89/thesaurus_query.vim'
   call plug#end()
 
   " easytags
@@ -250,6 +256,36 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   " pandoc
   let g:pandoc#formatting#mode = 'h' " A'
   let g:pandoc#formatting#textwidth = 72
+
+  " golang
+  let g:go_fmt_fail_silently = 0
+  let g:go_fmt_command = 'goimports'
+  let g:go_fmt_autosave = 1
+  let g:go_gopls_enabled = 1
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_function_calls = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_variable_declarations = 1
+  let g:go_highlight_variable_assignments = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_diagnostic_errors = 1
+  let g:go_highlight_diagnostic_warnings = 1
+
+  let g:go_auto_sameids = 0
+
+  set updatetime=100
+  "let g:go_gopls_analyses = { 'complisites' : v:false }
+  au FileType go nmap <leader>t :GoTest!<CR>
+  au FileType go nmap <leader>v :Go!<CR>
+  au FileType go nmap <leader>b :GoBuild!<CR>
+  au FileType go nmap <leader>c :GoCoverateToggle!<CR>
+  au FileType go nmap <leader>i :GoInfo!<CR>
+  au FileType go nmap <leader>l :GoMetaLinter!<CR>
+  au FileType go nmap <leader>m ilog.Print("made")<CR><ESC>
+  au FileType go nmap <leader>n iif err != nil {return err}<CR><ESC>
 
 " NERDTrees File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -295,6 +331,8 @@ endfunction
   let g:webdevicons_enable_ctrlp = 1
 
 
+else
+    autocmd vimleavepre *.go !gofmt -w % " backup if fatih fails
 endif
 
 "#######################################################################
