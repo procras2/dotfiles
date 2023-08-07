@@ -213,8 +213,6 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'vim-airline/vim-airline'
   Plug 'jamessan/vim-gnupg'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -322,6 +320,13 @@ endfunction
     let g:airline#extensions#tabline#show_buffers = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline_theme = 'gruvbox'
+    
+    " fzf set up
+    let g:fzf_action = {
+                \ 'ctrl-t': 'tab split',
+                \ 'ctrl-x': 'split',
+                \ 'ctrl-v': 'vsplit',
+                \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
 
   " devicons set up
   let g:webdevicons_enable_nerdtree = 1
