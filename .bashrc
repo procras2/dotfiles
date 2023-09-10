@@ -10,7 +10,8 @@ esac
 
 # ---------------------- environment variables ----------------------
 
-export TERM=xterm-256color
+export TERM=xterm-kitty
+#export TERM=xterm-256color
 export HRULEWIDTH=73
 export EDITOR=vim
 export VISUAL=vim
@@ -24,19 +25,21 @@ mkdir -p "$SNIPPETS" &>/dev/null
 test -d ~/.vim/spell && export VIMSPELL=(~/.vim/spell/*.add)
 
 # -----------------------------  pager ------------------------------
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
 
-if test -x /usr/bin/lesspipe; then
-    export LESSOPEN="| /usr/bin/lesspipe %s";
-    export LESSCLOSE="/usr/bin/lesspipe %s %s";
-fi
-
-export LESS_TERMCAP_mb="[35m" # magenta
-export LESS_TERMCAP_md="[33m" # yellow
-export LESS_TERMCAP_me="" # "0m"
-export LESS_TERMCAP_se="" # "0m"
-export LESS_TERMCAP_so="[34m" # blue
-export LESS_TERMCAP_ue="" # "0m"
-export LESS_TERMCAP_us="[4m" # underline
+# if test -x /usr/bin/lesspipe; then
+#     export LESSOPEN="| /usr/bin/lesspipe %s";
+#     export LESSCLOSE="/usr/bin/lesspipe %s %s";
+# fi
+# 
+# export LESS_TERMCAP_mb="[35m" # magenta
+# export LESS_TERMCAP_md="[33m" # yellow
+# export LESS_TERMCAP_me="" # "0m"
+# export LESS_TERMCAP_se="" # "0m"
+# export LESS_TERMCAP_so="[34m" # blue
+# export LESS_TERMCAP_ue="" # "0m"
+# export LESS_TERMCAP_us="[4m" # underline
 
 # ---------------------------- dircolors ----------------------------
 
