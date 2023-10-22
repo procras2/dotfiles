@@ -276,6 +276,10 @@ export GPG_TTY
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
+
+# ----------------------------- ranger   ----------------------------
+export RANGER_LOAD_DEFAULT_RC=false
+
 # ----------------------------- keyboard ----------------------------
 
 # escape key mapping we do thin in .xinitrc or in the desktop for gnome
