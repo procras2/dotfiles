@@ -119,7 +119,8 @@ URxvt.transparent: true
 URxvt.shading: 5
 URxvt.intensityStyles: false
 URxvt.depth: 32
-URxvt.font: xft:UbuntuMono Nerd Font:autohint=true:size=12
+URxvt.font: xft:Jetbrains Mono Nerd Font:autohint=true:size=12
+!!URxvt.font: xft:UbuntuMono Nerd Font:autohint=true:size=12
 !!xft:Hack Nerd Font:size=12
 !!xft:UbuntuMono Nerd Font:size=14:autohint=true
 !!xft:Inconsolata Nerd Font Mono:size=14, \
