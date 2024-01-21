@@ -281,6 +281,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'lervag/vimtex'
   Plug 'lumiliet/vim-twig'
   Plug 'morhetz/gruvbox'
+  Plug 'dpelle/vim-languagetool'
   " Devicons must be the very last one
   Plug 'ryanoasis/vim-devicons'
   Plug 'ron89/thesaurus_query.vim'
@@ -290,7 +291,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   let g:easytags_auto_hightlight = 0
 
   " vimtex setup
-  let g:tex_flavor = "latex"
+  "let g:tex_flavor = "latex"
   let g:vimtex_view_method = 'zathura'
 
   " gruvbox setup

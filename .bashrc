@@ -1,4 +1,4 @@
-#
+g
 # ~/.bashrc
 #
 
@@ -10,12 +10,14 @@ esac
 
 # ---------------------- environment variables ----------------------
 
-export TERM=xterm-kitty
+#export TERM=xterm-kitty
 #export TERM=xterm-256color
 export HRULEWIDTH=73
 export EDITOR=vim
 export VISUAL=vim
 export EDITOR_PREFIX=vim
+
+export RANGER_LOAD_DEFAULT_RC=false
 
 export SCRIPTS=~/.local/bin/scripts
 mkdir -p "$SCRIPTS" &>/dev/null
