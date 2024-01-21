@@ -11,11 +11,7 @@ esac
 # ---------------------- environment variables ----------------------
 
 #export TERM=xterm-kitty
-<<<<<<< HEAD
-#export TERM=xterm-256color
-=======
 export TERM=xterm-256color
->>>>>>> bc0672071bfcbb8d0f63ea7b4c0eae7a630b6f78
 export HRULEWIDTH=73
 export EDITOR=vim
 export VISUAL=vim
@@ -38,7 +34,7 @@ export MANROFFOPT="-P -c"
 #     export LESSOPEN="| /usr/bin/lesspipe %s";
 #     export LESSCLOSE="/usr/bin/lesspipe %s %s";
 # fi
-# 
+#
 # export LESS_TERMCAP_mb="[35m" # magenta
 # export LESS_TERMCAP_md="[33m" # yellow
 # export LESS_TERMCAP_me="" # "0m"
@@ -150,7 +146,7 @@ shopt -s histappend
 set -o vi
 
 # -------------------------------  aliases ----------------------------------
-# We have already defined the colour aliases in the colour section 
+# We have already defined the colour aliases in the colour section
 # above
 
 # some more ls aliases
