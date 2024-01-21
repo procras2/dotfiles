@@ -11,7 +11,11 @@ esac
 # ---------------------- environment variables ----------------------
 
 #export TERM=xterm-kitty
+<<<<<<< HEAD
 #export TERM=xterm-256color
+=======
+export TERM=xterm-256color
+>>>>>>> bc0672071bfcbb8d0f63ea7b4c0eae7a630b6f78
 export HRULEWIDTH=73
 export EDITOR=vim
 export VISUAL=vim
