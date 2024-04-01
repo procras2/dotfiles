@@ -127,7 +127,7 @@ set mouse=a
 " for Kitty
 "set ttymouse=sgr
 " for urxvt
-set ttymouse=urxvt
+"set ttymouse=urxvt
 
 set balloonevalterm
 " vim hardcodes background color erase even if the terminfo file does
@@ -252,6 +252,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   " Devicons must be the very last one
   Plug 'ryanoasis/vim-devicons'
   Plug 'ron89/thesaurus_query.vim'
+  Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for' : ['markdown', 'vim-plug']}
   call plug#end()
 
   " easytags
