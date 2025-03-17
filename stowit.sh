@@ -14,3 +14,4 @@ stow -t ~ Xresources
 stow -t ~ zathura
 stow -t ~ alacritty
 stow -t ~ rofi
+stow -t ~ picom
