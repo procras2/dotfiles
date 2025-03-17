@@ -12,3 +12,4 @@ stow -t ~ xinitrc
 stow -t ~ xprofile
 stow -t ~ Xresources
 stow -t ~ zathura
+stow -t ~ alacritty
