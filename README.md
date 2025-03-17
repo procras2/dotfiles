@@ -6,3 +6,8 @@ Useful **Dotfiles** for linux boxes.
 .profile
 .Xresources
 .dircolors
+
+
+Now in format for using gnu stow
+$ stow -t ~ xinitrc
+
