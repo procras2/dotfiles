@@ -13,3 +13,4 @@ stow -t ~ xprofile
 stow -t ~ Xresources
 stow -t ~ zathura
 stow -t ~ alacritty
+stow -t ~ rofi
