@@ -11,3 +11,4 @@ Useful **Dotfiles** for linux boxes.
 Now in format for using gnu stow
 $ stow -t ~ xinitrc
 
+gitconfig
