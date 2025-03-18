@@ -35,17 +35,18 @@ fi
 # Here we diable the horrible caps lock key
 # setxkbmap -layout us,ie  -option grp:win_space_toggle ctrl:nocaps
 # setxkbmap -layout us,ie  -option ctrl:nocaps -option grp:ctrl_shift_toggle
-setxkbmap -layout us,ie -option ctrl:nocaps -option grp:win_space_toggle
+# setxkbmap -layout us,ie -option ctrl:nocaps -option grp:win_space_toggle
+setxkbmap -layout us,ie -option ctrl:nocaps
 
 # Screen saver off
-xset s off
+# xset s off
 
 # and dpms to turn off the monitor
-xset -dpms
+# xset -dpms
 
 # set the background or put this in ~/.config/i3/config
 # ~/.fehbg &
 
-xss-lock -- i3lock -n -i /home/adrian/.config/backgrounds/nice-blue-background.png &
+# xss-lock -- i3lock -n -i /home/adrian/.config/backgrounds/nice-blue-background.png &
 
 exec i3
