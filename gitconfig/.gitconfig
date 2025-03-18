@@ -5,4 +5,5 @@
 [core]
 	editor = emacs
 [credential]
-	credentialStore = gpg
+	credentialStore = store
+
