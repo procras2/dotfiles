@@ -16,8 +16,6 @@ export EDITOR=vim
 export VISUAL=vim
 export EDITOR_PREFIX=vim
 
-export RANGER_LOAD_DEFAULT_RC=false
-
 export SCRIPTS=~/.local/bin/scripts
 mkdir -p "$SCRIPTS" &>/dev/null
 export SNIPPETS="$HOME/.local/share/snippets"
@@ -112,8 +110,8 @@ pathappend \
 # cd directly into anything in these directories without the full path
 
 export CDPATH=.:\
-~/repos/github.com:\
-~/repos/github.com/$GITUSER:\
+~/repos/github:\
+~/repos/github/$GITUSER:\
 ~/repos/dm4:\
 ~/repos:\
 ~
