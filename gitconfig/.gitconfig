@@ -4,4 +4,4 @@
 [core]
 	editor = emacs
 [credential]
-	credentialStore = plaintext
+	credentialStore = gpg
