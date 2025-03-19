@@ -18,3 +18,8 @@ stow -t ~ picom
 stow -t ~ ranger
 stown -t ~ gitconfig
 stow -t ~ dunst
+stow -t ~ hyprpaper
+stow -t ~ kitty
+stow -t ~ starship
+stow -t ~ waybar
+stow -t ~ wofi

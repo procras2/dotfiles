@@ -284,9 +284,13 @@ export RANGER_LOAD_DEFAULT_RC=false
 # escape key mapping we do thin in .xinitrc or in the desktop for gnome
 #test -n "$DISPLAY" && setxkbmap -option 'caps:escape' &>/dev/null
 
+# ------------------------ powerline --------------------------------
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
 #. /usr/share/powerline/bindings/bash/powerline.sh
+
+# ------------------------- starship --------------------------------
+eval "$(starship init bash)"
 
 umask 002
