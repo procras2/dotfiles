@@ -17,11 +17,11 @@ set $mod Mod4
 exec --no-startup-id picom
 exec --no-startup-id feh --bg-scale ~/.config/backgrounds/nice-blue-background.png
 # ~/Pictures/Wallpapers/PXL_20201024_193010707.jpg
-exec --no-startup-id xrdb -merge ~/.Xresources
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+# exec --no-startup-id xrdb -merge ~/.Xresources
+# exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # kill any hanging polybar processes
-exec_always killall polybar
+exec_always --no-startup_id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 bindsym Print exec maim "/home/$USER/Pictures/$(date).jpg"
@@ -86,10 +86,10 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -98,16 +98,22 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -119,6 +125,9 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling/ floating windows
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
