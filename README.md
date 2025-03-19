@@ -12,3 +12,4 @@ Now in format for using gnu stow
 $ stow -t ~ xinitrc
 
 gitconfig
+Using GCM
