@@ -5,5 +5,4 @@
 [core]
 	editor = emacs
 [credential]
-	credentialStore = store
-
+	helper = store --file ~/.git-credentials
