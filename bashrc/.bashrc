@@ -272,9 +272,7 @@ GPG_TTY=`tty`
 export GPG_TTY
 
 # ------------------------------- FZF -------------------------------
-source /usr/share/fzf/key-bindings.bash
-source /usr/share/fzf/completion.bash
-
+eval "$(fzf --bash)"
 
 # ----------------------------- ranger   ----------------------------
 export RANGER_LOAD_DEFAULT_RC=false
@@ -291,6 +289,7 @@ export RANGER_LOAD_DEFAULT_RC=false
 #. /usr/share/powerline/bindings/bash/powerline.sh
 
 # ------------------------- starship --------------------------------
-eval "$(starship init bash)"
+# eval "$(startship init bash)"
+if [ -z ${DISPLAY+x} ]; then echo "Not in X"; else eval "$(starship init bash)"; fi
 
 umask 002
