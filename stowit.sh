@@ -23,3 +23,4 @@ stow -t ~ kitty
 stow -t ~ starship
 stow -t ~ waybar
 stow -t ~ wofi
+stow -t ~ mpd
