@@ -16,12 +16,8 @@ set $mod Mod4
 
 exec --no-startup-id picom --experimental-backends -b
 exec --no-startup-id feh --bg-scale ~/.config/backgrounds/nice-blue-background.png
-# ~/Pictures/Wallpapers/PXL_20201024_193010707.jpg
-# exec --no-startup-id xrdb -merge ~/.Xresources
-# exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
-# kill any hanging polybar processes
-exec_always --no-startup_id killall polybar
+# Launch polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 bindsym Print exec maim "/home/$USER/Pictures/$(date).jpg"
@@ -51,9 +47,31 @@ exec --no-startup-id dunst
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
+# If you like to use xss-lock
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Add shutdown reboot lock screen commands from the Arch Wiki
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Home mode "$mode_system"
+
+# If you like to use xautolock
 #exec_always --no-startup-id  xautolock -time 10 -locker "i3lock -i /home/adrian/.config/backgrounds/nice-blue-background.png"
 #exec --nostartup-id xautolock -time 15 -locker 'systemctl suspend' -notify 600 -notifier 'i3lock | xset dpms force off' &
 exec_always --no-startup-id xautolock -time 5 -locker "~/bin/lockscreen.sh" -detectsleep -corners '++--' -cornerdelay 5 -notify 5 -notifier ~/bin/lockscreen-notify.sh

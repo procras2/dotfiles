@@ -32,21 +32,52 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Here we diable the horrible caps lock key
-# setxkbmap -layout us,ie  -option grp:win_space_toggle ctrl:nocaps
+# Xkbmap settings
+# only for Xorg, not for Wayland
+# -layout us,ie                  Keyboard language layouts to cycle through us ANSI, ie Irish, uk Ukranian or GB
+#
+# If you need multiple options prceed each by -option
+# -option ctrl:nocaps            Disable the caps lock key and use it <ctrl>
+# -option grp:win_space_toggle   Use <Win><SPACE> to cycle languages
+# -option grp:ctrl_shift_toggle  Uset <CTRL><SHIFT> to cycle languages
 # setxkbmap -layout us,ie  -option ctrl:nocaps -option grp:ctrl_shift_toggle
 # setxkbmap -layout us,ie -option ctrl:nocaps -option grp:win_space_toggle
 setxkbmap -layout us,ie -option ctrl:nocaps
 
+# Dpms settings
+# turn off dpms
+# xset -dpms
+# standby in 100 seconds
+# suspend in 200 seconds
+# turn off in 300 seconds
+xset dpms 100 200 300
+
+# Xscreensaver
 # Screen saver off
 # xset s off
+# noblank show x pattern, blank, blank screen
+xset s noblank
 
-# and dpms to turn off the monitor
-# xset -dpms
+#
+# Turn screen off
+# xset dpms force off
+#
+# Suspend
+# xset dpms force suspend
+#
+# Standby (quick resume)
+# xset dpms force standby
+#
+# Turn on the screensaver
+# xset s activate, remember to do sleep 1 & xset s activate if using the console
+#
+# To turn monitor on
+# xset dpms force on; xset s reset
 
 # set the background or put this in ~/.config/i3/config
 # ~/.fehbg &
 
+# Check that this is not also set in .config/i3/config
 # xss-lock -- i3lock -n -i /home/adrian/.config/backgrounds/nice-blue-background.png &
 
 exec i3
