@@ -58,7 +58,6 @@ If things aren't working ...
 
 - [System Crafters Youtube channel](https://www.youtube.com/@SystemCrafters "Nice")
 - [Protesilaos Stavrou](https://www.youtube.com/@protesilaos "Prot")
-- 
 
 ## Music player daemon ##
 
