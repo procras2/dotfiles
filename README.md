@@ -20,7 +20,8 @@ Some scripts which are kept in
 - Clone the repo somewhare
 - cd into the cloned repository
 - Use gnu stow to make a link back to where the configuration file
-  should go
+  should go. We wont need to state -t ~ if you leave the repo in the
+  homefolder.
 
 ``` bash
 $ stow -t ~ xinitrc
@@ -51,6 +52,13 @@ If things aren't working ...
 - Polybar web site for information on font problems, using fc-list,
   fc-match
 - [Andreatta i3 config](https://github.com/andreatta/config/tree/master/i3 "Andreatta")
+
+
+## Emacs configuration ##
+
+- [System Crafters Youtube channel](https://www.youtube.com/@SystemCrafters "Nice")
+- [Protesilaos Stavrou](https://www.youtube.com/@protesilaos "Prot")
+- 
 
 ## Music player daemon ##
 
