@@ -109,6 +109,8 @@ pathappend \
 # --------------------------------- cdpath ----------------------------------
 # cd directly into anything in these directories without the full path
 
+export GITUSER=procras2
+
 export CDPATH=.:\
 ~/repos/github:\
 ~/repos/github/$GITUSER:\
