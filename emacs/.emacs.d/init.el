@@ -371,3 +371,8 @@
   :ensure t
   :hook (( ;; and any other mode you want to hook into lsp
           web-mode) . lsp-deferred))
+
+;; Surround words
+(use-package surround
+  :ensure t
+  :bind-keymap ("M-'" . surround-keymap))

@@ -80,4 +80,12 @@ xset s noblank
 # Check that this is not also set in .config/i3/config
 # xss-lock -- i3lock -n -i /home/adrian/.config/backgrounds/nice-blue-background.png &
 
+# env variables for GDK apps
+# HiDPI 192
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+# Normal dpi 96
+#export GDK_SCALE=1
+#export GDK_DPI_SCALE=1
+
 exec i3
