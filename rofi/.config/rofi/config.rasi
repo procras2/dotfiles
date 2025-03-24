@@ -1,4 +1,5 @@
 configuration{
+//    dpi: 192;
     font: "mono 32";
     modi: "run,window,combi,drun";
     icon-theme: "Oranchelo";

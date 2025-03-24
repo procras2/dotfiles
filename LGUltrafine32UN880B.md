@@ -55,17 +55,30 @@ Table of scaling
 
 [HiDPI in i3](https://gregroz.me/article/i3-hidpi "Greg Rozdialik")
 
+This is a major mess at the moment.
+
+- Xft.dpi
+- xrandr --scale
+- Different toolkits
+  - GDK
+  - QT
+  - ELT
+- What happens with icons does not follow what happens with the text
+
+
+### Xft.dpi ###
+
 So we can change our settings for the monitor
 
-```sh
-
+```
 Xft.dpi: 96
-
-```sh
+```
 
 Change this to 
 
+```
 Xft.dpi: 192
+```
 
 This is a scaling `dpi_scale` of 2.0
 
@@ -113,16 +126,15 @@ For the variables above
 
 Now our xrandr command would look like
 
-```bash
-
+``` shell
 xrandr --output HDMI-0 --auto --scale 1.33333333333x1.33333333333
-
-```bash
+```
 
 ## Other DPI related changes ##
 
 We will just use the `dpi_scale`  of 2 to mulitply the pixel size we
 want
+
 So if we want 16 px set it to 16 * 2 = 32 px
 
 - i3 font
@@ -167,4 +179,17 @@ Set in
 	.config/rofi/config.rasi
 	
 font: "mono {{ math.Mul 16 (ds "config").dpi }}px";
+
+Of on the command line 
+
+```shell
+$ rofi --font "FiraCode 12" --show ssh
+```
+
+Note rofi ignores Xft:dpi and if you want something other than 96 you
+must set it iwht
+dpi: 192;
+
+Not sure how this interacts with xrandr --scale
+
 
