@@ -50,13 +50,13 @@ setxkbmap -layout us,ie -option ctrl:nocaps
 # standby in 100 seconds
 # suspend in 200 seconds
 # turn off in 300 seconds
-xset dpms 100 200 300
+#xset dpms 100 200 300
 
 # Xscreensaver
 # Screen saver off
 # xset s off
 # noblank show x pattern, blank, blank screen
-xset s noblank
+#xset s noblank
 
 #
 # Turn screen off
@@ -82,8 +82,8 @@ xset s noblank
 
 # env variables for GDK apps
 # HiDPI 192
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.5
 # Normal dpi 96
 #export GDK_SCALE=1
 #export GDK_DPI_SCALE=1

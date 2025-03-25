@@ -72,7 +72,8 @@
 !! Scaling of 200% is 2 * 96 = 192
 !! Scaling of 150% is 1.5 * 96 = 96 + 48 = 146
 !! We will set it to 192 for our HiDpi screen
-Xft.dpi: 192
+!Xft.dpi: 192
+Xft.dpi: 96
 !*.font: Consolas:pixelsize22:antialias=true:autohint=true
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
@@ -83,9 +84,10 @@ Xft.rgba: rgb
 
 !! Xcursorsize
 !! HiDPI (192)  calculation is 16 x 1.5 x scale (2) = 48
-Xcursor.size: 48
+!Xcursor.size: 48
 !! Normal dpi (96) calculation is 16 x 1.5 x scale (1) = 24
 !! Xcursor.size: 24
+Xcursor.size: 24
 
 ! xterm ----------------------------------------------------------------------
 !
