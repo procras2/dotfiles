@@ -334,6 +334,9 @@
 
 ;; Markdown
 (use-package markdown-mode
+  :init (setq markdown-command "/usr/bin/pandoc")
+  :bind (:map markdown-mode-map
+         ("C-c C-e" . markdown-do))
   :hook (markdown-mode . auto-fill-mode)
   )
 
