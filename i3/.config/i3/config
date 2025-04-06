@@ -15,7 +15,7 @@ for_window [class="^.*"] border pixel 1
 set $mod Mod4
 
 # Set the screen layout
-exec --no-startup-id ~/.screenlayout/LGUltrafine32UN880B.sh
+#exec --no-startup-id ~/.screenlayout/LGUltrafine32UN880B.sh
 
 # Picom
 # Use flags here
