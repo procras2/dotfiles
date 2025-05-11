@@ -293,6 +293,9 @@
 (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
+;; Fill width to 80 characters
+(setq-default fill-column 80)
+
 ;; Spelling for medical stuff
 (setq ispell-program-name "hunspell")
 ;; you could set `ispell-dictionary` instead but `ispell-local-dictionary' has higher priority
