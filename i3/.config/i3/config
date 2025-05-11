@@ -297,7 +297,7 @@ bar {
         strip_workspace_numbers yes
 #	font pango:"Ubuntu Nerd Font" 16
 #	font pango:"Ubuntu Nerd Font", "Font Awesome 6 Free:style=Solid" 16
-	font pango:FiraCode Nerd Font Mono, FontAwesome 32px
+	font pango:FiraCode Nerd Font Mono, FontAwesome 16px
 	separator_symbol "⋆"
 	
         # Here we can choose our status command i3status or i3blocks
