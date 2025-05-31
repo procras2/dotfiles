@@ -27,3 +27,4 @@ stow -t ~ mpd
 stow -t ~ i3status
 stow -t ~ i3blocks
 stow -t ~ chromium
+stow -t ~ sway
