@@ -10,6 +10,13 @@ gaps inner 10
 gaps outer 5
 default_border pixel 2 # disable window titlebar
 
+#set $clear #ffffff00
+
+# class                  border   background  text     indicator  child_border
+#client.focused_inactive  #333333  #5f676a     #ffffff  #484e50    $clear
+#client.unfocused         #333333  #222222     #888888  #292d2e    $clear
+client.focused           "#ffffff" "#9f1209" "#ffffff" 
+
 font pango: SourceCodePro Medium 12
 ### Variables
 #
@@ -26,7 +33,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show run
+set $menu wofi --show drun | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -43,10 +50,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
