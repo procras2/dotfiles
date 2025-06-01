@@ -23,6 +23,8 @@ set $mod Mod4
 # 
 # conf file is in ~/.config/picom/picom.conf
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
+# From the Arch wiki on nouveau
+exec --no-startup-id picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --use-damage --glx-no-stencil  
 
 # Default Background
 exec --no-startup-id feh --bg-scale ~/.config/backgrounds/nice-blue-background.png
