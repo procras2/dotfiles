@@ -3,8 +3,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;; # interactive
-    *) return;;
+*i*) ;; # interactive
+*) return ;;
 esac
 
 # ---------------------- environment variables ----------------------
@@ -43,19 +43,19 @@ export MANROFFOPT="-P -c"
 # ---------------------------- dircolors ----------------------------
 
 if command -v /usr/bin/dircolors &>/dev/null; then
-    if test -r ~/.dircolors; then
-        eval $(dircolors -b ~/.dircolors)
-    else
-        eval $(dircolors -b)
-    fi
+  if test -r ~/.dircolors; then
+    eval $(dircolors -b ~/.dircolors)
+  else
+    eval $(dircolors -b)
+  fi
 
-    alias ls='ls -h --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias diff='diff --color'
+  alias ls='ls -h --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias diff='diff --color'
 fi
 
 # -----------------------------  path -------------------------------
@@ -76,7 +76,7 @@ pathappend() {
     PATH=${PATH/#${arg}:/}   # Remove from the beginning
     PATH=${PATH/%:${arg}/}   # Remove from the end
     export PATH="${PATH:+"${PATH}:"}${arg}"
-    done
+  done
 }
 
 pathprepend() {
@@ -87,36 +87,31 @@ pathprepend() {
     PATH=${PATH/#${arg}:/}
     PATH=${PATH/%:${arg}/}
     export PATH="${arg}${PATH:+":${PATH}"}"
-    done
+  done
 }
 
 # remember that the last arg will be first in the path
 pathprepend \
-    ~/bin \
-    ~/.local/bin \
-    "$SCRIPTS"
+  ~/bin \
+  ~/.local/bin \
+  "$SCRIPTS"
 
 pathappend \
-    /usr/local/bin \
-    /usr/bin \
-    /usr/local/sbin \
-    /var/lib/flatpak/exports/bin \
-    /usr/lib/jvm/default/bin \
-    /usr/bin/site_perl \
-    /usr/bin/vendor_perl \
-    /usr/bin/core_perl
+  /usr/local/bin \
+  /usr/bin \
+  /usr/local/sbin \
+  /var/lib/flatpak/exports/bin \
+  /usr/lib/jvm/default/bin \
+  /usr/bin/site_perl \
+  /usr/bin/vendor_perl \
+  /usr/bin/core_perl
 
 # --------------------------------- cdpath ----------------------------------
 # cd directly into anything in these directories without the full path
 
 export GITUSER=procras2
 
-export CDPATH=.:\
-~/repos/github:\
-~/repos/github/$GITUSER:\
-~/repos/dm4:\
-~/repos:\
-~
+export CDPATH=.:~/repos/github:~/repos/github/$GITUSER:~/repos/dm4:~/repos:~
 
 # --------------------------- bash shell options ----------------------------
 
@@ -170,21 +165,21 @@ alias snippets='cd $SNIPPETS'
 # ------------------------------- functions ---------------------------------
 
 gpg-reload() {
-    pkill scdaemon
-    pkill gpg-agent
-    gpg-connect-agent /bye >/dev/null 2>&1
-    gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
-    gpgconf --reload gpg-agent
+  pkill scdaemon
+  pkill gpg-agent
+  gpg-connect-agent /bye >/dev/null 2>&1
+  gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+  gpgconf --reload gpg-agent
 }
 
 isosec() {
-    date -u +%Y%m%d%H%M%S "$@"
+  date -u +%Y%m%d%H%M%S "$@"
 } && export -f isosec
 
 cdtemp() {
-    name="$1"
-    mkdir -p "/tmp/$name"
-    cd "/tmp/$name"
+  name="$1"
+  mkdir -p "/tmp/$name"
+  cd "/tmp/$name"
 }
 
 # --------------------------- smart prompt ----------------------------------
@@ -225,7 +220,7 @@ __ps1() {
     p=$u
   fi
 
-  local dir;
+  local dir
   if test "$PWD" = "$HOME"; then
     dir='~'
   else
@@ -270,7 +265,7 @@ PROMPT_COMMAND="__ps1"
 #PS1='\[$(tput setaf 82)\]\u@\h:\[$(tput setaf 12)\]\w \[$(tput setaf 82)\]\$ \[$(tput sgr0)\]'
 
 # ------------------------------- GPG -------------------------------
-GPG_TTY=`tty`
+GPG_TTY=$(tty)
 export GPG_TTY
 
 # ------------------------------- FZF -------------------------------
@@ -292,6 +287,6 @@ export RANGER_LOAD_DEFAULT_RC=false
 
 # ------------------------- starship --------------------------------
 # eval "$(startship init bash)"
-if [ -z ${DISPLAY+x} ]; then echo "Not in X"; else eval "$(starship init bash)"; fi
+# if [ -z ${DISPLAY+x} ]; then echo "Not in X"; else eval "$(starship init bash)"; fi
 
 umask 002
