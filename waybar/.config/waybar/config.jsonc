@@ -6,7 +6,7 @@
     "margin": 0,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],                                                                           //battery   //disk     // uptime      //updates        // systray
-    "modules-right": ["clock","pulseaudio", "backlight", "network", "cpu", "memory", "temperature", "battery", "disk", "custom/uptime", "custom/updates", "tray"],
+    "modules-right": ["clock","pulseaudio", "sway/language", "backlight", "network", "cpu", "memory", "temperature", "battery", "disk", "custom/uptime", "custom/updates", "tray"],
 
 
     "sway/workspaces": {
@@ -34,6 +34,11 @@
         }
     },
 
+    "sway/language": {
+        "format": "{}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -44,7 +49,7 @@
         "max-length": 40,
         "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
         "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next",
+        "on-click-right": "playerctl next"
     },
 
     "custom/weather": {
