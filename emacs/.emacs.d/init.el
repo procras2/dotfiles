@@ -44,6 +44,9 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; Use ctrl and arrows to move between differnet windows
+(windmove-default-keybindings 'control)
+
 ;; Use doom-modeline
 ;;(use-package doom-modeline
 ;;  :init (doom-modeline-mode 1))
