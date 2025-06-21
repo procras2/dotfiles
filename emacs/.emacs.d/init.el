@@ -278,6 +278,44 @@
 ;; either in projects or are bookmarked.
 (recentf-mode 1)
 
+
+;;; webmode
+
+(use-package web-mode
+  :ensure t
+  :mode "\\.html?\\'"
+  :mode "\\.css\\'"
+  :mode "\\.js\\'"
+  :mode "\\.php\\'"
+  :mode "\\.phtml\\'"
+  :mode "\\.tpl\\'"
+  :mode "\\.[agj]sp\\'"
+  :mode "\\.as[cp]x\\'"
+  :mode "\\.erb\\'"
+  :mode "\\.mustache\\'"
+  :mode "\\.djhtml\\'"
+  :config
+  (setq web-mode-markup-indent-offser 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-comment-style 2))
+
+(setq web-mode-ac-sources-alist
+  '(("php" . (ac-source-yasnippet ac-source-php-auto-yasnippets))
+    ("html" . (ac-source-emmet-html-aliases ac-source-emmet-html-snippets))
+    ("css" . (ac-source-css-property ac-source-emmet-css-snippets))))
+
+(add-hook 'web-mode-before-auto-complete-hooks
+          '(lambda ()
+             (let ((web-mode-cur-language
+                    (web-mode-language-at-pos)))
+               (if (string= web-mode-cur-language "php")
+                   (yas-activate-extra-mode 'php-mode)
+                 (yas-deactivate-extra-mode 'php-mode))
+               (if (string= web-mode-cur-language "css")
+                   (setq emmet-use-css-transform t)
+                 (setq emmet-use-css-transform nil)))))
+
 ;;; C programming
 ;; C programs
 (add-hook 'c-mode-hook 'developement-mode)
@@ -379,22 +417,6 @@
      :init
      (yas-global-mode))
 
-(use-package web-mode
-  :ensure t
-  :mode "\\.html?\\'"
-  :mode "\\.css\\'"
-  :mode "\\.js\\'"
-  :mode "\\.phtml\\'"
-  :mode "\\.tpl\\.php\\'"
-  :mode "\\.[agj]sp\\'"
-  :mode "\\.as[cp]x\\'"
-  :mode "\\.erb\\'"
-  :mode "\\.mustache\\'"
-  :mode "\\.djhtml\\'"
-  :config
-  (setq web-mode-markup-indent-offser 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2))
 
 (use-package emmet-mode
   :ensure t
