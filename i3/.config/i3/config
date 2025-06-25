@@ -15,7 +15,7 @@ for_window [class="^.*"] border pixel 1
 set $mod Mod4
 
 # Set the screen layout
-#exec --no-startup-id ~/.screenlayout/LGUltrafine32UN880B.sh
+exec --no-startup-id ~/.screenlayout/three.sh
 
 # Picom
 # Use flags here
@@ -27,7 +27,8 @@ set $mod Mod4
 exec --no-startup-id picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --use-damage --glx-no-stencil  
 
 # Default Background
-exec --no-startup-id feh --bg-scale ~/.config/backgrounds/nice-blue-background.png
+#exec --no-startup-id feh --bg-scale ~/.config/backgrounds/nice-blue-background.png
+exec --no-startup-id feh --bg-fill --randomize ~/.config/backgrounds/*
 
 # Launch polybar
 # If we want you use i3satus then comment this and use the section below
@@ -73,7 +74,7 @@ exec --no-startup-id nm-applet
 # If you like to use xss-lock
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Add shutdown reboot lock screen commands from the Arch Wiki
 set $Locker i3lock && sleep 1
@@ -198,6 +199,15 @@ set $ws10 "10:❿  "
 set $ws11 "11: "
 set $ws12 "12: "
 
+workspace $ws1 output DP-3
+workspace $ws2 output HDMI-1
+workspace $ws3 output DP-3
+workspace $ws4 output DP-3
+workspace $ws5 output DP-3
+workspace $ws6 output DP-3
+workspace $ws7 output DP-3
+workspace $ws8 output DP-3
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -299,7 +309,7 @@ bar {
         strip_workspace_numbers yes
 #	font pango:"Ubuntu Nerd Font" 16
 #	font pango:"Ubuntu Nerd Font", "Font Awesome 6 Free:style=Solid" 16
-	font pango:FiraCode Nerd Font Mono, FontAwesome 16px
+	font pango:FiraCode Nerd Font Mono, FontAwesome 28px
 	separator_symbol "⋆"
 	
         # Here we can choose our status command i3status or i3blocks
@@ -320,4 +330,5 @@ bar {
 # Assign programs to workspaces
 # Use xprop to find out the class, the second item in the list is the class you need
 for_window [class="firefox"] moveto workspace $ws3
+for_window [class="Chromium"] moveto workspace $ws3
 for_window [class="Emacs"] moveto workspace $ws2

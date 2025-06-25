@@ -7,7 +7,7 @@
 
 # WALLPAPERS PATHS
 target_terminal=kitty
-wallDIRS=("$HOME/wallpapers-extra")
+wallDIRS=("$HOME/.config/backgrounds")
 SCRIPTSDIR="$HOME/arkscripts"
 
 # Directory for swaync

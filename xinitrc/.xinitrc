@@ -51,6 +51,7 @@ setxkbmap -layout us,ie -option ctrl:nocaps
 # suspend in 200 seconds
 # turn off in 300 seconds
 #xset dpms 100 200 300
+xset dpms 100 200 0
 
 # Xscreensaver
 # Screen saver off
