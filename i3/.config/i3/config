@@ -77,6 +77,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xset s off -dpms
 
 # If you like to use xautolock
+# xautolock monitors user activity on X windows and then launches a particular
+# program if there has been no activity
+
 #exec_always --no-startup-id  xautolock -time 10 -locker "i3lock -i /home/adrian/.config/backgrounds/nice-blue-background.png"
 #exec --nostartup-id xautolock -time 15 -locker 'systemctl suspend' -notify 600 -notifier 'i3lock | xset dpms force off' &
 #exec_always --no-startup-id xautolock -time 5 -locker "~/bin/lockscreen.sh" -detectsleep -corners '++--' -cornerdelay 5 -notify 5 -notifier ~/bin/lockscreen-notify.sh
