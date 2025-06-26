@@ -68,14 +68,27 @@ exec --no-startup-id dunst
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
+# Screen locking etc
+#
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
+
+exec --no-startup-id xset s off -dpms
+
+# If you like to use xautolock
+#exec_always --no-startup-id  xautolock -time 10 -locker "i3lock -i /home/adrian/.config/backgrounds/nice-blue-background.png"
+#exec --nostartup-id xautolock -time 15 -locker 'systemctl suspend' -notify 600 -notifier 'i3lock | xset dpms force off' &
+#exec_always --no-startup-id xautolock -time 5 -locker "~/bin/lockscreen.sh" -detectsleep -corners '++--' -cornerdelay 5 -notify 5 -notifier ~/bin/lockscreen-notify.sh
+exec --no-startup-id xautolock -time 10 -locker "i3lock -c 000000"
 
 # If you like to use xss-lock
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- xautolock -time 10 -locker i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- xautolock -time 10 -locker "i3lock -c 000000"
+    
 # Add shutdown reboot lock screen commands from the Arch Wiki
 set $Locker i3lock && sleep 1
 
@@ -94,11 +107,6 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Home mode "$mode_system"
-
-# If you like to use xautolock
-#exec_always --no-startup-id  xautolock -time 10 -locker "i3lock -i /home/adrian/.config/backgrounds/nice-blue-background.png"
-#exec --nostartup-id xautolock -time 15 -locker 'systemctl suspend' -notify 600 -notifier 'i3lock | xset dpms force off' &
-exec_always --no-startup-id xautolock -time 5 -locker "~/bin/lockscreen.sh" -detectsleep -corners '++--' -cornerdelay 5 -notify 5 -notifier ~/bin/lockscreen-notify.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -200,13 +208,15 @@ set $ws11 "11: "
 set $ws12 "12: "
 
 workspace $ws1 output DP-3
-workspace $ws2 output HDMI-1
+workspace $ws2 output DP-3
 workspace $ws3 output DP-3
 workspace $ws4 output DP-3
 workspace $ws5 output DP-3
-workspace $ws6 output DP-3
-workspace $ws7 output DP-3
-workspace $ws8 output DP-3
+workspace $ws6 output HDMI-1
+workspace $ws7 output HDMI-1
+workspace $ws8 output HDMI-1
+workspace $ws9 output HDMI-1
+workspace $ws10 output HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -329,6 +339,6 @@ bar {
 
 # Assign programs to workspaces
 # Use xprop to find out the class, the second item in the list is the class you need
-for_window [class="firefox"] moveto workspace $ws3
-for_window [class="Chromium"] moveto workspace $ws3
-for_window [class="Emacs"] moveto workspace $ws2
+for_window [class="firefox"] moveto workspace $ws6
+for_window [class="Chromium"] moveto workspace $ws6
+for_window [class="Emacs"] moveto workspace $ws1

@@ -34,7 +34,7 @@
 (setq inhibit-startup-screen t)
 
 ;; Set up my favourite font
-(add-to-list 'default-frame-alist `(font . "Iosevka Nerd Font 18"))
+(add-to-list 'default-frame-alist `(font . "Iosevka Nerd Font 22"))
 
 ;; Start up fullscreen
 (add-to-list 'default-frame-alist `(fullscreen . maximized))
