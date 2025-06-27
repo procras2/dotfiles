@@ -137,7 +137,9 @@ export HISTTIMEFORMAT='%d/%m/%y %T '
 shopt -s histappend
 
 # We will use vi editing of history
-set -o vi
+#set -o vi
+# No we will use the default emacs
+set -o emacs
 
 # -------------------------------  aliases ----------------------------------
 # We have already defined the colour aliases in the colour section
