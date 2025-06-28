@@ -1,0 +1,21 @@
+input "type:touchpad" {
+  "identifier": "1386:855:Wacom_Intuos_Pro_M_Finger",
+  "name": "Wacom Intuos Pro M Finger",
+  "type": "touchpad",
+  "scroll_factor": 1.0,
+  "libinput": {
+    "send_events": "enabled",
+    "tap": "enabled",
+    "tap_button_map": "lrm",
+    "tap_drag": "enabled",
+    "tap_drag_lock": "enabled_sticky",
+    "accel_speed": 0.0,
+    "accel_profile": "adaptive",
+    "natural_scroll": "disabled",
+    "left_handed": "disabled",
+    "scroll_method": "two_finger"
+  },
+  "vendor": 1386,
+  "product": 855,
+  "map_to_output": "DP-3"
+}
