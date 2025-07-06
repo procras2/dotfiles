@@ -334,7 +334,17 @@
 
 (use-package smart-tab)
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :config
+  (lsp-register-custom-settings'(("javascript.format.baseIndentSize" 0 t)
+				 ("javascript.format.semicolons" "ignore" t)
+				 ("javascript.format.indentSize" 4 t)
+				 ("javascript.format.tabSize" 4 t)
+				 ("javascript.format.indentStyle" "Block" t)
+				 )
+
+			       )
+  )
 
 (use-package php-mode
   :config 
