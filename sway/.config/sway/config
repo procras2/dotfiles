@@ -189,7 +189,7 @@ exec wl-paste --type image --watch cliphist store &
 exec nm-applet
 
 ## Waybar
-exec waybar
+#exec waybar
 
 ## SWWW Wallpaper Daemon
 exec swww-daemon
@@ -425,22 +425,22 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-##bar {
-#   position top
+bar {
+   position top
 
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-  #status_command ~/.config/sway/scripts/status.sh
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+   status_command ~/.config/sway/scripts/status.sh
 
 
- #colors {
-  #  statusline $fg
-   #     background $bg0
-    #    inactive_workspace $bg0 $bg0 $bg1
-     #   focused_workspace $orange $bg1 $orange
+colors {
+  statusline $fg
+     background $bg0
+    inactive_workspace $bg0 $bg0 $bg1
+   focused_workspace $orange $bg1 $orange
 
-   #}
- #}
+}
+}
 
 include @sysconfdir@/sway/config.d/*
 
