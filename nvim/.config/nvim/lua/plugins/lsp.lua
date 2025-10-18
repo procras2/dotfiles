@@ -232,6 +232,12 @@ return {
                 --   },
                 -- },
             },
+
+            texlab = {
+                keys = {
+                    { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
+                },
+            },
         }
 
         -- Ensure the servers and tools above are installed
