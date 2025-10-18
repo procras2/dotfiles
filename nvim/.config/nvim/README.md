@@ -27,13 +27,11 @@ Lightening-Fast Autocompletion Built in Rust
 
 ## The Plan ##
 
-
 - [X] lazy.nvim
 - [X] kanagama.nvim
 - [X] mini.statusline
 - [X] oil.nvim
 - [X] Basic options
-- [X] vim-sleuth
 - [X] editorconf
 - [X] showkeys
 - [X] treesitter.nvim
@@ -45,6 +43,17 @@ Lightening-Fast Autocompletion Built in Rust
 - [X] Mason
 - [X] dressing.nvim
 - [X] conform.nvim
-- [ ] blink-cmp
+- [X] blink-cmp
 - [ ] snacks.nvim
 - [ ] mini.nvim
+
+## Moved to notused ##
+
+- [X] vim-sleuth
+
+
+## My own ##
+
+- [X] vimtex.lua
+- [X] git-signs.lua
+- [X] noice.lua
