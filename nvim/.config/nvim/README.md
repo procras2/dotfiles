@@ -51,7 +51,6 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 - [X] conform.nvim
 - [X] blink-cmp
 - [ ] snacks.nvim
-- [ ] mini.nvim
 
 ## Moved to notused ##
 
@@ -60,6 +59,8 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 
 ## My own ##
 
-- [X] vimtex.lua
-- [X] git-signs.lua
-- [X] noice.lua
+- [X] vimtex
+- [X] git-signs
+- [X] noice
+- [ ] mini-hipatterns.nvim
+- [X] nvim-highlight-colors

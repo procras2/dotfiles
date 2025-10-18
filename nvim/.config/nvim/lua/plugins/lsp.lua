@@ -174,7 +174,6 @@ return {
             -- But for many setups, the LSP (`ts_ls`) will work just fine
             ts_ls = {},
             --
-
             html = { filetypes = { "html", "twig", "hbs" } },
             cssls = {},
             sqlls = {},
@@ -200,7 +199,7 @@ return {
                     },
                 },
             },
-
+            phpactor = {},
             texlab = {
                 keys = {
                     { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
