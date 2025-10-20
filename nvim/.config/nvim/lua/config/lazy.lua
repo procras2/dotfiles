@@ -42,3 +42,6 @@ require("config.keymaps")
 
 -- Load up mini
 require("config.nvim-highlight-colors")
+
+-- Load up indent-blankline
+require("config.indent-blankline")

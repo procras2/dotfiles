@@ -64,3 +64,5 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 - [X] noice
 - [ ] mini-hipatterns.nvim
 - [X] nvim-highlight-colors
+- [X] indent-blankline
+- [X] dict

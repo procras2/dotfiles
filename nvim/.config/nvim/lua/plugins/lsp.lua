@@ -161,7 +161,6 @@ return {
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         local servers = {
             bashls = {},
-            marksman = {},
             clangd = {},
             -- gopls = {},
             -- pyright = {},
@@ -172,11 +171,10 @@ return {
             --    https://github.com/pmizio/typescript-tools.nvim
             --
             -- But for many setups, the LSP (`ts_ls`) will work just fine
-            ts_ls = {},
             --
-            html = { filetypes = { "html", "twig", "hbs" } },
             cssls = {},
-            sqlls = {},
+            emmet_language_server = {},
+            html = { filetypes = { "html", "twig", "hbs" } },
             jsonls = {},
             lua_ls = {
                 settings = {
@@ -199,12 +197,15 @@ return {
                     },
                 },
             },
+            marksman = {},
             phpactor = {},
+            sqlls = {},
             texlab = {
                 keys = {
                     { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
                 },
             },
+            ts_ls = {},
         }
 
         -- Ensure the servers and tools above are installed

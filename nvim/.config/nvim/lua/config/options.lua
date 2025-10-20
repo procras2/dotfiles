@@ -45,7 +45,7 @@ vim.opt.splitbelow = true
 
 -- How to display whitespace characters, see 'listchars'
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", lead = "·", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -58,10 +58,10 @@ vim.opt.scrolloff = 10
 
 -- Hightlight test for some time after yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-		pattern = "*",
-		callback = function()
-			vim.highlight.on_yank()
-		end,
-		desc = "Highlight yank",
-	})
+    group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    desc = "Highlight yank",
+})
