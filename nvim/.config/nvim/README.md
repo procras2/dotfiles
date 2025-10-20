@@ -1,6 +1,7 @@
 # Sat Oct 11 07:43:46 AM IST 2025 #
 
-How to :=> Neovim from Scratch Youtube video
+## How to :=> Neovim from Scratch Youtube videos ##
+
 by Mr Jakob
 
 Part 1
@@ -25,8 +26,7 @@ Part 6
 Lightening-Fast Autocompletion Built in Rust
 [Mr Jakob](https://www.youtube.com/watch?v=GKIxgCcKAq4&t=1867s)
 
-
-Also used Henry Misc
+## Also used Henry Misc ##
 
 Neovim 0.11 Upgrade - Fixing My Broken Config
 [Henry Misc](https://www.youtube.com/watch?v=jEuJyROPzBs)
@@ -56,7 +56,6 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 
 - [X] vim-sleuth
 
-
 ## My own ##
 
 - [X] vimtex
@@ -66,3 +65,4 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 - [X] nvim-highlight-colors
 - [X] indent-blankline
 - [X] dict
+- [X] telescope.nvim
