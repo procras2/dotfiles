@@ -36,6 +36,7 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 How to setup Neovim LSP Like a Pro in 2025 (v0.11+)
 
 [Josean Martinez](https://www.youtube.com/watch?v=oBiBEx7L000)
+[Josean Martinez](https://www.youtube.com/)
 
 ## The Plan ##
 
