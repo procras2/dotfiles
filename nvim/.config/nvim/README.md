@@ -1,6 +1,6 @@
 # Sat Oct 11 07:43:46 AM IST 2025 #
 
-## How to :=> Neovim from Scratch Youtube videos ##
+## How to :=> Neovim from Scratch YouTube videos ##
 
 by Mr Jakob
 
@@ -30,6 +30,12 @@ Lightening-Fast Autocompletion Built in Rust
 
 Neovim 0.11 Upgrade - Fixing My Broken Config
 [Henry Misc](https://www.youtube.com/watch?v=jEuJyROPzBs)
+
+## Also using Josean Martinez ##
+
+How to setup Neovim LSP Like a Pro in 2025 (v0.11+)
+
+[Josean Martinez](https://www.youtube.com/watch?v=oBiBEx7L000)
 
 ## The Plan ##
 
@@ -66,3 +72,4 @@ Neovim 0.11 Upgrade - Fixing My Broken Config
 - [X] indent-blankline
 - [X] dict
 - [X] telescope.nvim
+- [X] ltex-ls
