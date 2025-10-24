@@ -45,7 +45,8 @@ vim.opt.splitbelow = true
 
 -- How to display whitespace characters, see 'listchars'
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", lead = "·", trail = "·", nbsp = "␣" }
+-- vim.opt.listchars = { tab = "» ", lead = "·", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"

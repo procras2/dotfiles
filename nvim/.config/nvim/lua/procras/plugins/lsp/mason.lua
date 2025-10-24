@@ -2,6 +2,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = {
         ensure_installed = {
+            "clangd",
             "ts_ls",
             "html",
             "cssls",
