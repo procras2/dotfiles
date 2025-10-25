@@ -189,7 +189,8 @@ cdtemp() {
 PROMPT_LONG=50
 PROMPT_MAX=95
 
-__ps1() {
+# __ps1() {
+__PSTWENTYONE() {
   local P='$'
 
   if test -n "${ZSH_VERSION}"; then
@@ -262,7 +263,7 @@ __ps1() {
   fi
 }
 
-PROMPT_COMMAND="__ps1"
+# PROMPT_COMMAND="__ps1"
 
 #PS1='\[$(tput setaf 82)\]\u@\h:\[$(tput setaf 12)\]\w \[$(tput setaf 82)\]\$ \[$(tput sgr0)\]'
 
@@ -290,5 +291,10 @@ export RANGER_LOAD_DEFAULT_RC=false
 # ------------------------- starship --------------------------------
 # eval "$(startship init bash)"
 # if [ -z ${DISPLAY+x} ]; then echo "Not in X"; else eval "$(starship init bash)"; fi
+
+# ------------------------- oh-my-posh ------------------------------
+# eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
+# eval "$(oh-my-posh init bash --config /home/adrian/.cache/oh-my-posh/themes/paradox.omp.json)"
+eval "$(oh-my-posh --init --shell bash --config /usr/share/oh-my-posh/themes/takuya.omp.json)" 
 
 umask 002
