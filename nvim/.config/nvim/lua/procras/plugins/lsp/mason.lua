@@ -11,6 +11,7 @@ return {
             "phpactor",
             "emmet_ls",
             "eslint",
+            "ltex",
         },
     },
     dependencies = {
@@ -26,6 +27,6 @@ return {
                 },
             },
         },
-        "neovim/nvim-lspconfig"
-    }
+        "neovim/nvim-lspconfig",
+    },
 }

@@ -1,6 +1,5 @@
 return {
     "rebelot/kanagawa.nvim",
-    enable = false,
     branch = "master",
     config = function()
         require("kanagawa").setup({
