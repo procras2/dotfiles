@@ -12,6 +12,7 @@ return {
             "emmet_ls",
             "eslint",
             "ltex",
+            "texlab",
         },
     },
     dependencies = {

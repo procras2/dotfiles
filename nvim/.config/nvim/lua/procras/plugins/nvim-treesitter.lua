@@ -1,6 +1,6 @@
-return  {
+return {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'master',
+    branch = "master",
     lazy = false,
     build = ":TSUpdate",
     config = function()
@@ -11,7 +11,7 @@ return  {
                 "bash",
                 "bibtex",
                 "c",
-                "csv", 
+                "csv",
                 "editorconfig",
                 "elixir",
                 "git_config",
@@ -34,7 +34,7 @@ return  {
             },
             auto_install = true,
             sync_install = false,
-            highlight = { enable = true },
+            highlight = { enable = true, disable = { "latex" } },
             indent = { enable = true },
 
             incremental_selection = {
@@ -47,5 +47,5 @@ return  {
                 },
             },
         })
-    end
+    end,
 }
