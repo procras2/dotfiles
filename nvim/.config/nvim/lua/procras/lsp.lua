@@ -66,3 +66,13 @@ vim.diagnostic.config({
         },
     },
 })
+
+vim.lsp.config("ltex", {
+    settings = {
+        ltex = {
+            checkFrequency = "save",
+            enabled = { "markdown", "plaintex", "tex", "latex" },
+            language = "en-GB",
+        },
+    },
+})
