@@ -12,9 +12,9 @@ esac
 #export TERM=xterm-kitty
 #export TERM=xterm-256color
 export HRULEWIDTH=73
-export EDITOR=vim
-export VISUAL=vim
-export EDITOR_PREFIX=vim
+export EDITOR=nvim
+export VISUAL=nvim
+export EDITOR_PREFIX=nvim
 
 export SCRIPTS=~/.local/bin/scripts
 mkdir -p "$SCRIPTS" &>/dev/null
@@ -137,9 +137,9 @@ export HISTTIMEFORMAT='%d/%m/%y %T '
 shopt -s histappend
 
 # We will use vi editing of history
-#set -o vi
+set -o vi
 # No we will use the default emacs
-set -o emacs
+#set -o emacs
 
 # -------------------------------  aliases ----------------------------------
 # We have already defined the colour aliases in the colour section
@@ -189,8 +189,7 @@ cdtemp() {
 PROMPT_LONG=50
 PROMPT_MAX=95
 
-# __ps1() {
-__PSTWENTYONE() {
+__ps1() {
   local P='$'
 
   if test -n "${ZSH_VERSION}"; then
@@ -263,9 +262,9 @@ __PSTWENTYONE() {
   fi
 }
 
-# PROMPT_COMMAND="__ps1"
+PROMPT_COMMAND="__ps1"
 
-#PS1='\[$(tput setaf 82)\]\u@\h:\[$(tput setaf 12)\]\w \[$(tput setaf 82)\]\$ \[$(tput sgr0)\]'
+PS1='\[$(tput setaf 82)\]\u@\h:\[$(tput setaf 12)\]\w \[$(tput setaf 82)\]\$ \[$(tput sgr0)\]'
 
 # ------------------------------- GPG -------------------------------
 GPG_TTY=$(tty)
@@ -295,6 +294,6 @@ export RANGER_LOAD_DEFAULT_RC=false
 # ------------------------- oh-my-posh ------------------------------
 # eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 # eval "$(oh-my-posh init bash --config /home/adrian/.cache/oh-my-posh/themes/paradox.omp.json)"
-eval "$(oh-my-posh --init --shell bash --config /usr/share/oh-my-posh/themes/takuya.omp.json)" 
+# eval "$(oh-my-posh --init --shell bash --config /usr/share/oh-my-posh/themes/takuya.omp.json)" 
 
 umask 002
