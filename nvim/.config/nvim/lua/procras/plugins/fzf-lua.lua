@@ -5,71 +5,104 @@ return {
     -- or if using mini.icons/mini.nvim
     dependencies = { "nvim-mini/mini.icons" },
     opts = {},
-    keys={
+    keys = {
         {
             "<leader>ff",
-            function() require('fzf-lua').files() end,
-            desc="[F]ind [F]iles in project directory"
+            function()
+                require("fzf-lua").files()
+            end,
+            desc = "[F]ind [F]iles in project directory",
         },
         {
             "<leader>fg",
-            function() require('fzf-lua').live_grep() end,
-            desc="[F]ind by [G]repping in project directory"
+            function()
+                require("fzf-lua").live_grep()
+            end,
+            desc = "[F]ind by [G]repping in project directory",
         },
         {
             "<leader>fc",
-            function() require('fzf-lua').files({cwd=vim.fn.stdpath("config")}) end,
-            desc="[F]ind in neovim [C]onfiguration"
+            function()
+                require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
+            end,
+            desc = "[F]ind in neovim [C]onfiguration",
         },
         {
             "<leader>fh",
-            function() require('fzf-lua').helptags() end,
-            desc="[F]ind [H]elp"
+            function()
+                require("fzf-lua").helptags()
+            end,
+            desc = "[F]ind [H]elp",
         },
         {
             "<leader>fk",
-            function() require('fzf-lua').keymaps() end,
-            desc="[F]ind [K]eymaps"
+            function()
+                require("fzf-lua").keymaps()
+            end,
+            desc = "[F]ind [K]eymaps",
         },
         {
             "<leader>fb",
-            function() require('fzf-lua').builtin() end,
-            desc="[F]ind [B]uilt in fuzzy finders"
+            function()
+                require("fzf-lua").builtin()
+            end,
+            desc = "[F]ind [B]uilt in fuzzy finders",
         },
         {
             "<leader>fw",
-            function() require('fzf-lua').grep_cword() end,
-            desc="[F]ind current [W]ord"
+            function()
+                require("fzf-lua").grep_cword()
+            end,
+            desc = "[F]ind current [W]ord",
         },
         {
             "<leader>fW",
-            function() require('fzf-lua').grep_cWORD() end,
-            desc="[F]ind current [W]ORD"
+            function()
+                require("fzf-lua").grep_cWORD()
+            end,
+            desc = "[F]ind current [W]ORD",
         },
         {
             "<leader>fd",
-            function() require('fzf-lua').diagnostics_document() end,
-            desc="[F]ind [D]iagnostics"
+            function()
+                require("fzf-lua").diagnostics_document()
+            end,
+            desc = "[F]ind [D]iagnostics",
         },
         {
             "<leader>fr",
-            function() require('fzf-lua').resume() end,
-            desc="[F]ind [R]esume"
+            function()
+                require("fzf-lua").resume()
+            end,
+            desc = "[F]ind [R]esume",
         },
         {
             "<leader>fo",
-            function() require('fzf-lua').oldfiles() end,
-            desc="[F]ind [O]ld Files"
+            function()
+                require("fzf-lua").oldfiles()
+            end,
+            desc = "[F]ind [O]ld Files",
         },
         {
             "<leader><leader>",
-            function() require('fzf-lua').buffers() end,
-            desc="[<leader>] Find existing buffers"
+            function()
+                require("fzf-lua").buffers()
+            end,
+            desc = "[<leader>] Find existing buffers",
         },
         {
             "<leader>/",
-            function() require('fzf-lua').lgrep_curbuf() end,
-            desc="[/] Live grep the current buffer"
+            function()
+                require("fzf-lua").lgrep_curbuf()
+            end,
+            desc = "[/] Live grep the current buffer",
+        },
+        {
+            "<leader>fs",
+            function()
+                require("fzf-lua").spell_suggest()
+            end,
+            desc = "[F]ind [S]pelling Suggestions",
         },
     },
 }

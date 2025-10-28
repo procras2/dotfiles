@@ -7,29 +7,45 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf, silent = true }
 
         -- set keybinds
-        opts.desc = "Show LSP references"
-        keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-        opts.desc = "Go to declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+        -- show lsp definition
+        opts.desc = "[G]oto [D]efinition"
+        keymap.set("n", "gd", require("fzf-lua").lsp_definitions, opts)
 
-        opts.desc = "Show LSP definition"
-        keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definition
+        -- show definition, references
+        opts.desc = "[G]oto [R]eferences"
+        keymap.set("n", "gr", require("fzf-lua").lsp_references, opts)
 
-        opts.desc = "Show LSP implementations"
-        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        -- show lsp implementations
+        opts.desc = "[G]oto [I]mplementations"
+        keymap.set("n", "gI", require("fzf-lua").lsp_implementations, opts)
 
-        opts.desc = "Show LSP type definitions"
-        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+        -- show lsp type definitions
+        opts.desc = "Type [D]efinitions"
+        keymap.set("n", "<leader>D", require("fzf-lua").lsp_typedefs, opts)
 
+        -- all the symbols in your current document
+        opts.desc = "[D]ocument [S]ymbols"
+        keymap.set("n", "<leader>ds", require("fzf-lua").lsp_typedefs, opts)
+
+        -- workspace symbols, like document symbols but whole project
+        opts.desc = "[W]orkspace [S]ymbols"
+        keymap.set("n", "<leader>ds", require("fzf-lua").lsp_live_workspace_symbols, opts)
+
+        -- smart rename
+        opts.desc = "[R]e[n]ame"
+        keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+
+        -- see available code actions, in visual mode will apply to selection
         opts.desc = "See available code actions"
-        keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+        keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-        opts.desc = "Smart rename"
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+        -- go to declaration, declartion would be in header file in C
+        opts.desc = "[G]o to [D]eclaration"
+        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
-        opts.desc = "Show buffer diagnostics"
-        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+        -- opts.desc = "Show buffer diagnostics"
+        -- keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
         opts.desc = "Show line diagnostics"
         keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
