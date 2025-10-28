@@ -10,18 +10,18 @@ return {
     end,
     keys = {
         {
-            "<leader>rs",
+            "<leader>ps",
             function()
                 require("phpcs").cs()
             end,
-            desc = "[R]un PHPCS [S]niffer",
+            desc = "[P]HPCS [S]niffer",
         },
         {
-            "<leader>rb",
+            "<leader>pb",
             function()
                 require("phpcs").cbf()
             end,
-            desc = "[R]un PHPCS [B]eautifier",
+            desc = "[P]HPCS [B]eautifier",
         },
     },
 }
