@@ -14,4 +14,4 @@ vim.keymap.set("n", "<leader>cf", function()
     })
 end, { desc = "Format current file" })
 
-vim.keymap.set("n", "<leader>w", '<Cmd>lua require("dict").lookup()<CR>', { desc = "Look up word in dictionary" })
+-- vim.keymap.set("n", "<leader>w", '<Cmd>lua require("dict").lookup()<CR>', { desc = "Look up word in dictionary" })
