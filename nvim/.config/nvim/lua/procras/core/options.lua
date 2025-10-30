@@ -57,6 +57,19 @@ vim.opt.scrolloff = 10
 -- Disable commandline until it is needed
 -- vim.opt.Icmdheight = 0
 
+-- Spell checking language
+vim.opt.spelllang = "en_gb,medical"
+-- vim.opt.spell = true
+
+-- Autocommand to set textwidth and wrap for markdown and tex files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "markdown", "tex" },
+    callback = function()
+        vim.opt_local.textwidth = 80
+        vim.opt_local.wrap = true
+    end,
+})
+
 -- Hightlight test for some time after yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
