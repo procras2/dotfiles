@@ -28,7 +28,7 @@
 # font-family = Iosevka
 font-family = JetBrainsMono Nerd Font
 font-size = 20
-background-opacity = 1.0
+background-opacity = 0.8
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.
