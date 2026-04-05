@@ -1,5 +1,7 @@
 return {
     "stevearc/conform.nvim",
+    -- lazy = true,
+    -- event = { "BufReadPre", "BufNewFile" },
     opts = {
         formatters_by_ft = {
             lua = { "stylua" },
@@ -11,19 +13,19 @@ return {
             javascript = { "prettierd", "prettier", stop_after_first = true },
             typescript = { "prettierd", "prettier", stop_after_first = true },
             -- php = { "pint", lsp_format = "fallback" },
-            php = { "php-cs-fixer", lsp_format = "fallback" },
+            -- php = { "php-cs-fixer" },
         },
-        formatter = {
-            ["php-cs-fixer"] = {
-                command = "php-cs-fixer-3.88.0",
-                args = {
-                    "fix",
-                    "--rules=@PSR12",
-                    "$FILENAME",
-                },
-                stdin = false,
-            },
-        },
+        -- formatters = {
+        --     ["php-cs-fixer"] = {
+        --         command = "php-cs-fixer",
+        --         args = {
+        --             "fix",
+        --             "--rules=@PSR12",
+        --             "$FILENAME",
+        --         },
+        --         stdin = false,
+        --     },
+        -- },
         notify_on_error = true,
         format_on_save = {
             -- These options will be passed to conform.format()

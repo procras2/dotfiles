@@ -10,7 +10,7 @@ return {
             -- Conform will run the first available formatter
             javascript = { "prettierd", "prettier", stop_after_first = true },
             typescript = { "prettierd", "prettier", stop_after_first = true },
-            php = { "pint" },
+            php = { "php_cs_fixer-3.88.0" },
         },
         format_on_save = {
             -- These options will be passed to conform.format()
