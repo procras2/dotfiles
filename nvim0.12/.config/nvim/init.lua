@@ -424,6 +424,7 @@ vim.pack.add({
 	"https://www.github.com/ibhagwan/fzf-lua",
 	"https://www.github.com/nvim-tree/nvim-tree.lua",
 	"https://www.github.com/folke/which-key.nvim",
+	"https://www.github.com/lervag/vimtex",
 	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
 		branch = "main",
@@ -449,6 +450,7 @@ packadd("mini.nvim")
 packadd("fzf-lua")
 packadd("nvim-tree.lua")
 packadd("which-key.nvim")
+packadd("vimtex")
 -- LSP
 packadd("nvim-lspconfig")
 packadd("mason.nvim")
@@ -509,6 +511,8 @@ local setup_treesitter = function()
 			end
 		end,
 	})
+
+  local highlight = { enable = true, disable = {"latex"}}
 end
 
 setup_treesitter()
@@ -580,6 +584,8 @@ require("gitsigns").setup({
 	signcolumn = true,
 	current_line_blame = false,
 })
+
+vim.g.vimtex_view_method = "zathura"
 
 require("mason").setup({})
 
