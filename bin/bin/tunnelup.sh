@@ -5,8 +5,7 @@ NC='\033[0m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 
-if [ -e /tmp/tunnel.pid ]
-then
+if [ -e /tmp/tunnel.pid ]; then
   echo -e "${RED}/tmp/tunnel.pid exists${NC} -> cannot start tunnel again"
   exit 1
 fi
@@ -19,8 +18,8 @@ ssh ian \
   -L 21000:192.168.1.6:9812
 
 echo -e "Tunnel is ${GREEN}Up${NC}."
-  
-ps aux | grep ssh | grep ian | awk '{print $2}' > /tmp/tunnel.pid
+
+ps aux | grep -m 1 "ssh ian" | awk '{print $2}' >/tmp/tunnel.pid
 
 echo -e "You may close this with $ kill -9 ${YELLOW}$(cat /tmp/tunnel.pid)${NC}"
 
