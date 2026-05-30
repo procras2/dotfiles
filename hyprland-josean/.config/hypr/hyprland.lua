@@ -21,6 +21,15 @@ hl.monitor({
 	scale = "auto",
 })
 
+-- DELL UP2716D in office
+hl.monitor({
+	output = "DP-1",
+	mode = "2560x1440@60",
+	position = "0x0",
+	scale = "1.25",
+})
+
+-- tpe14 laptop screen
 hl.monitor({
 	output = "eDP-1",
 	mode = "1920x1080@60",
@@ -34,7 +43,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal = "ghostty"
-local fileManager = "nemo"
+local fileManager = "nautilus"
 local browser = "firefox"
 local launcher = "rofi -show drun -show-icons"
 local runner = "rofi -show run"
@@ -254,6 +263,7 @@ hl.device({
 	sensitivity = -0.5,
 })
 
+-- Disable the tpe14 touchpad, you can still use the trackpoint if you wish
 hl.device({
 	name = "elan-touchpad",
 	enabled = false,
@@ -263,8 +273,8 @@ hl.device({
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-local secondMod = "SUPER + SHIFT" -- Sets "Windows" key as main modifier
+local mainMod = "SUPER"           -- Sets "Windows" key as main modifier
+local secondMod = "SUPER + SHIFT" -- Sets "Shift Windows" key as second modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 
