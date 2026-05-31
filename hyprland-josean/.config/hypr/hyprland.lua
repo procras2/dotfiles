@@ -21,19 +21,27 @@ hl.monitor({
 	scale = "auto",
 })
 
--- DELL UP2716D in office
+-- BENQ in Kilsheelan
 hl.monitor({
 	output = "DP-1",
-	mode = "2560x1440@60",
-	position = "0x0",
+	mode = "3840x2560@60",
+	position = "auto",
 	scale = "1.25",
 })
+
+-- DELL UP2716D in office
+-- hl.monitor({
+-- 	output = "DP-1",
+-- 	mode = "2560x1440@60",
+-- 	position = "0x0",
+-- 	scale = "1.25",
+-- })
 
 -- tpe14 laptop screen
 hl.monitor({
 	output = "eDP-1",
 	mode = "1920x1080@60",
-	position = "0x0",
+	position = "auto",
 	scale = "1.0",
 })
 
@@ -244,7 +252,7 @@ hl.config({
 
 		touchpad = {
 			natural_scroll = false,
-			scroll_factor = 0.4,
+			scroll_factor = 0.2,
 			disable_while_typing = true,
 		},
 	},
@@ -273,7 +281,7 @@ hl.device({
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "SUPER"           -- Sets "Windows" key as main modifier
+local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local secondMod = "SUPER + SHIFT" -- Sets "Shift Windows" key as second modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
@@ -314,7 +322,7 @@ hl.bind(secondMod .. " + down", hl.dsp.window.move({ direction = "down" }))
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(secondMod .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)

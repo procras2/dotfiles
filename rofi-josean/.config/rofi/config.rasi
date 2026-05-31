@@ -166,3 +166,5 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+@theme "/home/adrian/.local/share/rofi/themes/spotlight-dark.rasi"

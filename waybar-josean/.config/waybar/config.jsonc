@@ -1,0 +1,41 @@
+{
+  "layer": "top",
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "hyprland/language",
+    "battery",
+    "clock",
+    "custom/hyprwhspr"
+  ],
+  "hyprland/window": {
+    "max-length": 50
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "\uf244",
+      "\uf243",
+      "\uf242",
+      "\uf241",
+      "\uf240"
+    ]
+  },
+  "clock": {
+    "format-alt": "{:%a, %d. %b  %H:%M}"
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-us": "US",
+    "format-gb": "GB",
+    "format-ie": "IE"
+  },
+  "include": [
+    "/home/adrian/.config/waybar/hyprwhspr-module.jsonc"
+  ]
+}
