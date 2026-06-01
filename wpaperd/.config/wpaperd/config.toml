@@ -1,0 +1,10 @@
+[default]
+duration = "30m"
+mode = "center"
+sorting = "ascending"
+
+[any]
+path = "/home/adrian/.config/backgrounds"
+
+["BNQ BenQ RD280UA JBR0003701Q"]
+path = "/home/adrian/.config/backgrounds/bluemountain.jpg"
