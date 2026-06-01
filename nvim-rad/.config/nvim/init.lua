@@ -461,12 +461,12 @@ local setup_treesitter = function()
 		"lua",
 		"markdown",
 		"python",
+    "typescript",
+    "vue",
+    "svelte",
+    "bash",
 		"php",
 		"latex",
-		"typescript",
-		"vue",
-		"svelte",
-		"bash",
 	}
 
 	local config = require("nvim-treesitter.config")

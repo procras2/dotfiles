@@ -1,1 +1,6 @@
 nvim-pack-lock.json
+test.aux
+test.fbd_latexmk
+test.fls
+test.log
+test.synctex.gz
