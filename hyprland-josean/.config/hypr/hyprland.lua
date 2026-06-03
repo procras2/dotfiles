@@ -20,23 +20,6 @@ hl.monitor({
 	position = "auto",
 	scale = "auto",
 })
-
--- BENQ in Kilsheelan
-hl.monitor({
-	output = "DP-1",
-	mode = "3840x2560@60",
-	position = "auto",
-	scale = "1.25",
-})
-
--- DELL UP2716D in office
--- hl.monitor({
--- 	output = "DP-1",
--- 	mode = "2560x1440@60",
--- 	position = "0x0",
--- 	scale = "1.25",
--- })
-
 -- tpe14 laptop screen
 hl.monitor({
 	output = "eDP-1",
@@ -44,6 +27,49 @@ hl.monitor({
 	position = "auto",
 	scale = "1.0",
 })
+
+require("monitors")
+-- BENQ in Kilsheelan
+-- hl.monitor({
+-- 	output = "DP-1",
+-- 	mode = "3840x2560@60",
+-- 	position = "auto",
+-- 	scale = "1",
+-- })
+
+-- DELL UP2716D in South Terrace Office
+-- hl.monitor({
+-- 	output = "DP-1",
+-- 	mode = "2560x1440@60",
+-- 	position = "0x0",
+-- 	scale = "1.25",
+-- })
+
+-- Zenbook MQ149CD Split mode
+-- hl.monitor({
+-- 	output = "DP-1",
+-- 	mode = "1920x2400@60",
+-- 	position = "auto",
+-- 	scale = "1",
+-- })
+
+-- Zenbook  MQ149CD Extend mode
+-- hl.monitor({
+-- 	output = "DP-5",
+-- 	mode = "1920x1200@60",
+-- 	position = "auto",
+-- 	scale = "1",
+-- 	-- transform = 3,
+-- })
+
+-- Zenbook  MQ149CD Extend mode
+-- hl.monitor({
+-- 	output = "DP-6",
+-- 	mode = "1920x1200@60",
+-- 	position = "auto",
+-- 	scale = "1",
+-- 	-- transform = 3,
+-- })
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -420,4 +446,4 @@ hl.window_rule({
 })
 
 -- HyprMod managed settings
-require("hyprland-gui")
+-- require("hyprland-gui")
