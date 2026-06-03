@@ -82,7 +82,18 @@ MiniSnippets.setup({
 })
 MiniSnippets.start_lsp_server({ match = false })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
+        vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
+        vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
+        vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
+        vim.api.nvim_set_hl(0, "MiniSnippetsVisited", {})
+    end,
+})
+
 --- mini diff and fugitive ---
+
 local MiniDiff = require("mini.diff")
 MiniDiff.setup({
 	source = MiniDiff.gen_source.git({ index = false }),
