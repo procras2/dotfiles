@@ -9,11 +9,14 @@ vim.o.smartindent = true
 vim.o.wrap = false
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.cursorline = true
 vim.o.swapfile = false
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.incsearch = true
 vim.o.signcolumn = "yes"
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 -- Keybinds
 -- We will put binds from packs and language servers where they are set up
@@ -35,11 +38,14 @@ vim.pack.add({
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/ibhagwan/fzf-lua" },
-    -- { src = "https://github.com/echasnovski/mini.pick" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-    { src = "https://github.com/neovim/nvim-lspconfig" },
-    { src = "https://github.com/chomosuke/typst-preview.nvim" },
+    { src = "https://github.com/olrtg/nvim-emmet" },
     { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/hrsh7th/nvim-cmp" },
+    { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+    { src = "https://github.com/hrsh7th/cmp-buffer" },
+    { src = "https://github.com/saghen/blink.cmp.git" },
 })
 
 -- Lualine
@@ -114,11 +120,6 @@ map("n", "<leader>fs",
 function() require("fzf-lua").spell_suggest() end,
 { silent = true, desc = "[F]ind [S]pelling Suggestions"})
 
--- Mini.pick
--- require "mini.pick".setup()
--- map('n', '<leader>f', ":Pick files<CR>")
--- map('n', '<leader>h', ":Pick help<CR>")
-
 -- Treesitter
 require "nvim-treesitter".setup({
     ensure_installed = { "svelte", "typescript", "javascript", "css" },
@@ -128,30 +129,50 @@ require "nvim-treesitter".setup({
 -- LSP
 -- Note you must have installed these either with mason or by your package manager
 -- enable them
-vim.lsp.enable({ "marksman", "lua_ls", "emmet-ls", "clangd" })
 
--- set configs if needed
-vim.lsp.config("marksman", {})
+local lsp = vim.lsp
 
-vim.lsp.config("lua_ls", {})
+local servers = {"marksman", "lua_ls", "emmet_language_server", "clangd" , "phpactor"}
 
-vim.lsp.config("emmet-ls", {})
+for _, server in ipairs(servers) do
+    lsp.config(server, {
+        capabilities =
+        require("cmp_nvim_lsp").default_capabilities(),
+        settings = {}
+    })
+    lsp.enable(server)
+end
 
 map('n', '<leader>lf', vim.lsp.buf.format)
 
 -- LSP autocomplete
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-        end
-    end,
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     callback = function(ev)
+--         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--         if client:supports_method('textDocument/completion') then
+--             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--         end
+--     end,
+-- })
+--
+-- vim.cmd("set completeopt+=noselect")
+
+local cmp = require("cmp")
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    }),
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+    },
+    experimental = { ghost_text = true },
 })
-vim.cmd("set completeopt+=noselect")
+
+pcall(require, "blink.cmp")
 
 -- Setup colors and vague
 require "vague".setup({ transparent = true })
 vim.cmd("colorscheme vague")
---
--- vim.cmd(":hi statusline guibg=NONE")
