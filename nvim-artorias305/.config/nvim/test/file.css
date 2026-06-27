@@ -1,4 +1,13 @@
+:root {
+    --color-primary: #fa8072;
+    --color-secondary: cadetblue;
+}
+
 h1 {
     background: red;
     color: #ffffff;
+}
+
+a {
+    color: var(--color-primary);
 }
