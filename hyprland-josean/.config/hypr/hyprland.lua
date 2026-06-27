@@ -29,6 +29,7 @@ hl.monitor({
 })
 
 require("monitors")
+
 -- BENQ in Kilsheelan
 -- hl.monitor({
 -- 	output = "DP-1",
@@ -93,7 +94,8 @@ local runner = "rofi -show run"
 --
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("wpaperd -d")
+	hl.exec_cmd("hyprpaper")
+	-- hl.exec_cmd("wpaperd -d")
 	hl.exec_cmd("playerctl daemon")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 28")
@@ -108,6 +110,7 @@ end)
 hl.env("XCURSOR_SIZE", "28")
 hl.env("HYPRCURSOR_SIZE", "28")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("SAL_USE_VCLPLUGIN", "gtk3")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -302,7 +305,7 @@ hl.device({
 -- Disable the tpe14 touchpad, you can still use the trackpoint if you wish
 hl.device({
 	name = "elan-touchpad",
-	enabled = false,
+	enabled = true,
 })
 
 ---------------------

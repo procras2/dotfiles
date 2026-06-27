@@ -9,5 +9,5 @@ hl.monitor({
 	output = "desc:BNQ BenQ RD280UA JBR0003701Q",
 	mode = "3840x2560@59.98",
 	position = "0x0",
-	scale = 1.25,
+	scale = 1.0,
 })

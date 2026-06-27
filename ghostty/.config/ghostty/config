@@ -51,4 +51,4 @@ font-size = 20
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 #theme = Kanagawa Dragon
-theme = Gruvbox Material
+theme = TokyoNight Night
