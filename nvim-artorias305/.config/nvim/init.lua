@@ -14,17 +14,15 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.expandtab = true
--- opt.smartindent = true
--- opt.autoindent = true
+opt.smartindent = true
+opt.autoindent = true
 
 opt.signcolumn = "yes"
 -- opt.colorcolumn = "100"
 opt.showmatch = true
 opt.cmdheight = 1
-opt.completeopt = "menuone,noinsert,noselect"
 opt.showmode = false
 
-opt.pumheight = 10
 opt.conceallevel = 0
 opt.concealcursor = ""
 opt.lazyredraw = true
@@ -89,6 +87,23 @@ opt.wildmode = "longest:full,full"
 opt.diffopt:append("linematch:60")
 opt.redrawtime = 10000
 opt.maxmempattern = 20000
+
+-- Native vim 0.12 autocompletion
+opt.autocomplete = true
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+        end
+    end,
+})
+
+opt.complete:append('o')
+opt.completeopt = "menuone,noinsert,noselect"
+opt.pumheight = 10
+opt.pumborder = "rounded"
 
 -- Language servers array
 local servers = { "clangd", "emmet_ls", "lua_ls", "phpactor", "ts_ls", "marksman", "texlab" }
@@ -161,8 +176,8 @@ vim.pack.add({
     { src = "https://github.com/SmiteshP/nvim-navic" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
-    { src = "https://github.com/saghen/blink.lib" },
-    { src = "https://github.com/saghen/blink.cmp" },
+    -- { src = "https://github.com/saghen/blink.lib" },
+    -- { src = "https://github.com/saghen/blink.cmp",                   version = 'v1.8.0' },
     { src = "https://github.com/akinsho/toggleterm.nvim" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/lervag/vimtex" },
@@ -174,15 +189,15 @@ vim.pack.add({
 -- Set up LuaSnip
 require("luasnip").config.set_config({
 
-	-- Enable autotriggered snippets
-	enable_autosnippets = true,
+    -- Enable autotriggered snippets
+    enable_autosnippets = true,
 
-	-- Use Tab (or some other key if you prefer) to trigger visual selection
-	store_selection_keys = "<Tab>",
+    -- Use Tab (or some other key if you prefer) to trigger visual selection
+    store_selection_keys = "<Tab>",
 
-	vim.cmd([[
+    vim.cmd([[
 " Expand or jump in insert mode
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 
 " Jump forward through tabstops in visual mode
 smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
@@ -264,7 +279,6 @@ end
 setup_treesitter()
 
 -- which-key setup
-
 require("which-key").setup()
 
 -- vimtex setup
@@ -286,6 +300,12 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("phpactor", {
+    on_attach = function(client, bufnr)
+        require("nvim-navic").attach(client, bufnr)
+    end
+})
+
+vim.lsp.config("clangd", {
     on_attach = function(client, bufnr)
         require("nvim-navic").attach(client, bufnr)
     end
@@ -352,58 +372,58 @@ require("oil").setup({
 -- Gitsigns
 require("gitsigns").setup({
     signs = {
-        add = { text = "\u{2590}" },    -- ▏
-        change = { text = "\u{2590}" }, -- ▐
-        delete = { text = "\u{2590}" }, -- ◦
-        topdelete = { text = "\u{25e6}" }, -- ◦
+        add = { text = "\u{2590}" },          -- ▏
+        change = { text = "\u{2590}" },       -- ▐
+        delete = { text = "\u{2590}" },       -- ◦
+        topdelete = { text = "\u{25e6}" },    -- ◦
         changedelete = { text = "\u{25cf}" }, -- ●
-        untracked = { text = "\u{25cb}" }, -- ○
+        untracked = { text = "\u{25cb}" },    -- ○
     },
     signcolumn = true,
     current_line_blame = false,
 })
 
 -- Blink
-require("blink.cmp").setup({
-    fuzzy = { implementation = "prefer_rust" },
-    completion = {
-        menu = {
-            draw = {
-                components = {
-                    -- customize the drawing of kind icons
-                    kind_icon = {
-                        text = function(ctx)
-                            -- default kind icon
-                            local icon = ctx.kind_icon
-                            -- if LSP source, check for color derived from documentation
-                            if ctx.item.source_name == "LSP" then
-                                local color_item = require("nvim-highlight-colors").format(ctx.item.documentation,
-                                    { kind = ctx.kind })
-                                if color_item and color_item.abbr ~= "" then
-                                    icon = color_item.abbr
-                                end
-                            end
-                            return icon .. ctx.icon_gap
-                        end,
-                        highlight = function(ctx)
-                            -- default highlight group
-                            local highlight = "BlinkCmpKind" .. ctx.kind
-                            -- if LSP source, check for color derived from documentation
-                            if ctx.item.source_name == "LSP" then
-                                local color_item = require("nvim-highlight-colors").format(ctx.item.documentation,
-                                    { kind = ctx.kind })
-                                if color_item and color_item.abbr_hl_group then
-                                    highlight = color_item.abbr_hl_group
-                                end
-                            end
-                            return highlight
-                        end,
-                    },
-                },
-            },
-        },
-    },
-})
+-- require("blink.cmp").setup({
+--     fuzzy = { implementation = "prefer_rust" },
+--     completion = {
+--         menu = {
+--             draw = {
+--                 components = {
+--                     -- customize the drawing of kind icons
+--                     kind_icon = {
+--                         text = function(ctx)
+--                             -- default kind icon
+--                             local icon = ctx.kind_icon
+--                             -- if LSP source, check for color derived from documentation
+--                             if ctx.item.source_name == "LSP" then
+--                                 local color_item = require("nvim-highlight-colors").format(ctx.item.documentation,
+--                                     { kind = ctx.kind })
+--                                 if color_item and color_item.abbr ~= "" then
+--                                     icon = color_item.abbr
+--                                 end
+--                             end
+--                             return icon .. ctx.icon_gap
+--                         end,
+--                         highlight = function(ctx)
+--                             -- default highlight group
+--                             local highlight = "BlinkCmpKind" .. ctx.kind
+--                             -- if LSP source, check for color derived from documentation
+--                             if ctx.item.source_name == "LSP" then
+--                                 local color_item = require("nvim-highlight-colors").format(ctx.item.documentation,
+--                                     { kind = ctx.kind })
+--                                 if color_item and color_item.abbr_hl_group then
+--                                     highlight = color_item.abbr_hl_group
+--                                 end
+--                             end
+--                             return highlight
+--                         end,
+--                     },
+--                 },
+--             },
+--         },
+--     },
+-- })
 
 -- nvim-highlight-colors
 require("nvim-highlight-colors").setup()
@@ -448,6 +468,6 @@ vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>")
 vim.keymap.set("n", "<leader>pc", pack_clean)
-vim.keymap.set("n", "<leader>q", ":Trouble diagnostics toggle<CR>", {desc = "[Q]... trouble diagnostics"})
+vim.keymap.set("n", "<leader>q", ":Trouble diagnostics toggle<CR>", { desc = "[Q]... trouble diagnostics" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
 vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
