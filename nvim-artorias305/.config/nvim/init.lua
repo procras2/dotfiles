@@ -166,14 +166,14 @@ vim.pack.add({
     { src = "https://github.com/brenoprata10/nvim-highlight-colors" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/nvim-mini/mini.nvim" },
-    {
-        src = "https://github.com/nvim-treesitter/nvim-treesitter",
-        branch = "main",
-        build = ":TSUpdate"
-    },
+    -- {
+    --     src = "https://github.com/nvim-treesitter/nvim-treesitter",
+    --     branch = "main",
+    --     build = ":TSUpdate"
+    -- },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
-    { src = "https://github.com/SmiteshP/nvim-navic" },
+    -- { src = "https://github.com/SmiteshP/nvim-navic" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     -- { src = "https://github.com/saghen/blink.lib" },
@@ -183,100 +183,101 @@ vim.pack.add({
     { src = "https://github.com/lervag/vimtex" },
     { src = "https://github.com/chentoast/marks.nvim" },
     { src = "https://github.com/folke/trouble.nvim" },
-    { src = "https://github.com/L3MON4D3/LuaSnip" },
+    -- { src = "https://github.com/L3MON4D3/LuaSnip" },
 })
 
 -- Set up LuaSnip
-require("luasnip").config.set_config({
-
-    -- Enable autotriggered snippets
-    enable_autosnippets = true,
-
-    -- Use Tab (or some other key if you prefer) to trigger visual selection
-    store_selection_keys = "<Tab>",
-
-    vim.cmd([[
-" Expand or jump in insert mode
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-
-" Jump forward through tabstops in visual mode
-smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
-
-" Expand snippets in insert mode with Tab
-"imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
-
-" Jump forward in through tabstops in insert and visual mode with Control-f
-"imap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
-"smap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
-
-" Jump backward through snippet tabstops with Shift-Tab (for example)
-imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-
-" Cycle forward through choice nodes with Control-f (for example)
-imap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
-smap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
-        ]]),
-})
-
--- Lazy-load snippets, i.e. only load when required, e.g. for a given filetype
-require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/LuaSnip/" } })
-
+-- require("luasnip").config.set_config({
+--
+--     -- Enable autotriggered snippets
+--     enable_autosnippets = true,
+--
+--     -- Use Tab (or some other key if you prefer) to trigger visual selection
+--     store_selection_keys = "<Tab>",
+--
+--     vim.cmd([[
+-- " Expand or jump in insert mode
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+--
+-- " Jump forward through tabstops in visual mode
+-- smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+--
+-- " Expand snippets in insert mode with Tab
+-- "imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
+--
+-- " Jump forward in through tabstops in insert and visual mode with Control-f
+-- "imap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
+-- "smap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
+--
+-- " Jump backward through snippet tabstops with Shift-Tab (for example)
+-- imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+-- smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+--
+-- " Cycle forward through choice nodes with Control-f (for example)
+-- imap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
+-- smap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
+--         ]]),
+-- })
+--
+-- -- Lazy-load snippets, i.e. only load when required, e.g. for a given filetype
+-- require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/LuaSnip/" } })
+--
+--
 -- Treesitter
-local setup_treesitter = function()
-    local treesitter = require("nvim-treesitter")
-    treesitter.setup({})
-    local ensure_installed = {
-        "vim",
-        "vimdoc",
-        "rust",
-        "c",
-        "cpp",
-        "go",
-        "html",
-        "css",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "python",
-        "typescript",
-        "vue",
-        "svelte",
-        "bash",
-        "php",
-        "latex",
-    }
-
-    local config = require("nvim-treesitter.config")
-
-    local already_installed = config.get_installed()
-    local parsers_to_install = {}
-
-    for _, parser in ipairs(ensure_installed) do
-        if not vim.tbl_contains(already_installed, parser) then
-            table.insert(parsers_to_install, parser)
-        end
-    end
-
-    if #parsers_to_install > 0 then
-        treesitter.install(parsers_to_install)
-    end
-
-    local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })
-    vim.api.nvim_create_autocmd("FileType", {
-        group = group,
-        callback = function(args)
-            if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
-                vim.treesitter.start(args.buf)
-            end
-        end,
-    })
-
-    local highlight = { enable = true, disable = { "latex" } }
-end
-
-setup_treesitter()
+-- local setup_treesitter = function()
+--     local treesitter = require("nvim-treesitter")
+--     treesitter.setup({})
+--     local ensure_installed = {
+--         "vim",
+--         "vimdoc",
+--         "rust",
+--         "c",
+--         "cpp",
+--         "go",
+--         "html",
+--         "css",
+--         "javascript",
+--         "json",
+--         "lua",
+--         "markdown",
+--         "python",
+--         "typescript",
+--         "vue",
+--         "svelte",
+--         "bash",
+--         "php",
+--         "latex",
+--     }
+--
+--     local config = require("nvim-treesitter.config")
+--
+--     local already_installed = config.get_installed()
+--     local parsers_to_install = {}
+--
+--     for _, parser in ipairs(ensure_installed) do
+--         if not vim.tbl_contains(already_installed, parser) then
+--             table.insert(parsers_to_install, parser)
+--         end
+--     end
+--
+--     if #parsers_to_install > 0 then
+--         treesitter.install(parsers_to_install)
+--     end
+--
+--     local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })
+--     vim.api.nvim_create_autocmd("FileType", {
+--         group = group,
+--         callback = function(args)
+--             if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
+--                 vim.treesitter.start(args.buf)
+--             end
+--         end,
+--     })
+--
+--     local highlight = { enable = true, disable = { "latex" } }
+-- end
+--
+-- setup_treesitter()
 
 -- which-key setup
 require("which-key").setup()
@@ -288,7 +289,7 @@ vim.g.vimtex_view_method = 'zathura'
 require('marks').setup()
 
 -- nvim-navic
-require('nvim-navic').setup()
+-- require('nvim-navic').setup()
 
 vim.lsp.config("lua_ls", {
     settings = {
@@ -299,34 +300,34 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.config("phpactor", {
-    on_attach = function(client, bufnr)
-        require("nvim-navic").attach(client, bufnr)
-    end
-})
-
-vim.lsp.config("clangd", {
-    on_attach = function(client, bufnr)
-        require("nvim-navic").attach(client, bufnr)
-    end
-})
+-- vim.lsp.config("phpactor", {
+--     on_attach = function(client, bufnr)
+--         require("nvim-navic").attach(client, bufnr)
+--     end
+-- })
+--
+-- vim.lsp.config("clangd", {
+--     on_attach = function(client, bufnr)
+--         require("nvim-navic").attach(client, bufnr)
+--     end
+-- })
 
 -- Lualine
 require('lualine').setup({
     options = { theme = 'auto' },
-    winbar = {
-        lualine_c = {
-            'filename',
-            {
-                function()
-                    return require("nvim-navic").get_location()
-                end,
-                cond = function()
-                    return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-                end,
-            },
-        },
-    },
+    -- winbar = {
+    --     lualine_c = {
+    --         'filename',
+    --         {
+    --             function()
+    --                 return require("nvim-navic").get_location()
+    --             end,
+    --             cond = function()
+    --                 return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+    --             end,
+    --         },
+    --     },
+    -- },
     sections = {
         lualine_c = {
             'filename',
@@ -430,6 +431,23 @@ require("nvim-highlight-colors").setup()
 
 -- Trouble
 require("trouble").setup()
+
+-- function to show lsp progress, works with Ghostty terminal
+vim.api.nvim_create_autocmd("LspProgress", {
+  callback = function(ev)
+    -- vim.print(ev.data)
+    local value = ev.data.params.value or {}
+
+    vim.api.nvim_echo({ { value.message or "done" } }, false, {
+      id = "lsp." .. ev.data.client_id,
+      kind = "progress",
+      source = "vim.lsp",
+      title = value.title,
+      status = value.kind ~= "end" and "running" or "success",
+      percent = value.percentage,
+    })
+  end,
+})
 
 -- Function to delete unused plugins
 local function pack_clean()
