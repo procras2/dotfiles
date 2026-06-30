@@ -6,7 +6,7 @@ date: Sat Jun 27 02:25:55 PM IST 2026
 
 Minimal neovim config for 2026 neovim 0.12 up
 
-- [Youtube](https://www.youtube.com/watch?v=BhUqoQpgnoI)
+- [YouTube](https://www.youtube.com/watch?v=BhUqoQpgnoI)
 
 By Artorias305
 
