@@ -41,7 +41,9 @@ require('mason-tool-installer').setup({
     ensure_installed = {
         "lua_ls",
         "stylua",
-        "pyright",
+        "marksman",
+        "texlab",
+        "phpactor",
     }
 })
 
@@ -57,55 +59,56 @@ vim.lsp.config("lua_ls", {
 })
 
 -- Set up LuaSnip
--- require("luasnip").config.set_config({
---
---     -- Enable autotriggered snippets
---     enable_autosnippets = true,
---
---     -- Use Tab (or some other key if you prefer) to trigger visual selection
---     store_selection_keys = "<Tab>",
---
---     vim.cmd([[
--- " Expand or jump in insert mode
--- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
---
--- " Jump forward through tabstops in visual mode
--- smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
---
--- " Expand snippets in insert mode with Tab
--- "imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
---
--- " Jump forward in through tabstops in insert and visual mode with Control-f
--- "imap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
--- "smap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
---
--- " Jump backward through snippet tabstops with Shift-Tab (for example)
--- imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
--- smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
---
--- " Cycle forward through choice nodes with Control-f (for example)
--- imap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
--- smap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
---         ]]),
--- })
---
+require("luasnip").config.set_config({
+
+    -- Enable autotriggered snippets
+    enable_autosnippets = true,
+
+    -- Use Tab (or some other key if you prefer) to trigger visual selection
+    store_selection_keys = "<Tab>",
+
+})
+
+vim.cmd([[
+" Expand or jump in insert mode
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+
+" Jump forward through tabstops in visual mode
+smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+
+" Expand snippets in insert mode with Tab
+"imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
+
+" Jump forward in through tabstops in insert and visual mode with Control-f
+"imap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
+"smap <silent><expr> <C-f> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-f>'
+
+" Jump backward through snippet tabstops with Shift-Tab (for example)
+imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+
+" Cycle forward through choice nodes with Control-f (for example)
+imap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
+smap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
+]])
+
 -- Lazy-load snippets, i.e. only load when required, e.g. for a given filetype
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/LuaSnip/" } })
 
 -- Blink CMP
 require("blink.cmp").setup({
-    signature = { enabled = true },
-    completion = {
-        documentation = { autoshow = true, auto_show_delay_ms = 500},
-        menu = {
-            auto_show = true,
-            draw = {
-                treesitter = {"lsp"},
-                columns = { { "kind_icon", "label", "label_description", gap = 1}, { "kind" } },
-            },
-        },
-    },
+	signature = { enabled = true },
+	completion = {
+		documentation = { auto_show = true, auto_show_delay_ms = 500 },
+		menu = {
+			auto_show = true,
+			draw = {
+				treesitter = { "lsp" },
+				columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } },
+			},
+		},
+	},
 })
 
 -- Mini

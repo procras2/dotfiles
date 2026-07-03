@@ -88,4 +88,4 @@ opt.maxmempattern = 20000
 opt.pumheight = 10
 opt.pumborder = "rounded"
 
-
+vim.diagnostic.config({virtual_text = true}) -- inline diagnostics
