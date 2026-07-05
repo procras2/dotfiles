@@ -303,6 +303,8 @@ hl.device({
 })
 
 -- Disable the tpe14 touchpad, you can still use the trackpoint if you wish
+-- You can look at your mice, keyboards etc with hyprctl devices
+-- Keybind to enable and disable mouse/touchpad below SUPER + T
 hl.device({
 	name = "elan-touchpad",
 	enabled = true,
@@ -397,6 +399,13 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+
+-- Touchpad
+-- Pad on
+hl.bind(mainMod .. "+ T", hl.dsp.exec_cmd([[ hyprctl eval "hl.device({ name = 'elan-touchpad', enabled = true})"]]))
+-- Pad off
+hl.bind(mainMod .. "+ SHIFT + T", hl.dsp.exec_cmd([[ hyprctl eval "hl.device({ name = 'elan-touchpad', enabled = false})"]]))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----

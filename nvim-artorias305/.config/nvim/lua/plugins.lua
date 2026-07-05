@@ -17,7 +17,7 @@ vim.pack.add({
     -- },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
-    -- { src = "https://github.com/SmiteshP/nvim-navic" },
+    { src = "https://github.com/SmiteshP/nvim-navic" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/akinsho/toggleterm.nvim" },
@@ -123,19 +123,19 @@ require("mini.surround").setup()
 -- Lualine
 require('lualine').setup({
     options = { theme = 'auto' },
-    -- winbar = {
-    --     lualine_c = {
-    --         'filename',
-    --         {
-    --             function()
-    --                 return require("nvim-navic").get_location()
-    --             end,
-    --             cond = function()
-    --                 return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-    --             end,
-    --         },
-    --     },
-    -- },
+    winbar = {
+        lualine_c = {
+            'filename',
+            {
+                function()
+                    return require("nvim-navic").get_location()
+                end,
+                cond = function()
+                    return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+                end,
+            },
+        },
+    },
     sections = {
         lualine_c = {
             'filename',
@@ -154,13 +154,13 @@ vim.g.vimtex_view_method = 'zathura'
 require("marks").setup()
 
 -- nvim-navic
--- require('nvim-navic').setup()
+require('nvim-navic').setup()
 
--- vim.lsp.config("phpactor", {
---     on_attach = function(client, bufnr)
---         require("nvim-navic").attach(client, bufnr)
---     end
--- })
+vim.lsp.config("phpactor", {
+    on_attach = function(client, bufnr)
+        require("nvim-navic").attach(client, bufnr)
+    end
+})
 --
 -- vim.lsp.config("clangd", {
 --     on_attach = function(client, bufnr)

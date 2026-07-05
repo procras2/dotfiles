@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 require('options')
 require('functions')
 require('plugins')
+require('my.multicursor')
 require('keymaps')
 
 -- Native vim 0.12 autocompletion
