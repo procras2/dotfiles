@@ -29,6 +29,9 @@ vim.pack.add({
         branch = "main"
     },
 
+    -- Conform for linting
+    { src = "https://github.com/stevearc/conform.nvim" },
+
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/SmiteshP/nvim-navic" },
@@ -39,5 +42,6 @@ vim.pack.add({
     { src = "https://github.com/lervag/vimtex" },
     { src = "https://github.com/chentoast/marks.nvim" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+    { src = "https://github.com/opdavies/toggle-checkbox.nvim" },
     { src = "https://github.com/folke/trouble.nvim" },
 })

@@ -2,11 +2,11 @@
 vim.g.mapleader = " "
 
 -- Options
-require('config.options')
-require('functions')
-require('plugins')
-require('my.multicursor')
-require('config.keymaps')
+require("config.options")
+require("functions")
+require("plugins")
+require("my.multicursor")
+require("config.keymaps")
 
 -- Native vim 0.12 autocompletion
 -- We don't need this is we use blink
