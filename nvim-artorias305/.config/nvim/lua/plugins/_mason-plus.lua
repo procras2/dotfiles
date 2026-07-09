@@ -24,3 +24,13 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+-- LSP keymaps (not already set)
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[L]sp [F]ormat buffer (vim.lsp.buf.format)" })
+vim.keymap.set(
+	"n",
+	"gd",
+	vim.lsp.buf.definition,
+	{ desc = "[G]o [D]efinition - Go to Definition (vim.lsp.buf.defintion)" }
+)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[N]ame - Rename symbol (vim.lsp.buf.rename)" })

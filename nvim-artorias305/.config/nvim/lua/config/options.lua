@@ -37,14 +37,12 @@ opt.matchtime = 2
 
 opt.winborder = "rounded"
 
-opt.listchars = 'tab:» ,lead:•,trail:•'
+opt.listchars = "tab:» ,lead:•,trail:•"
 opt.list = false
 
 local undodir = vim.fn.expand("~/.vim/undodir")
-if
-    vim.fn.isdirectory(undodir) == 0
-then
-    vim.fn.mkdir(undodir, "p")
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p")
 end
 
 opt.backup = false
@@ -70,8 +68,8 @@ opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "utf-8"
 
-vim.opt.guicursor =
-"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+opt.guicursor =
+	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -88,5 +86,3 @@ opt.maxmempattern = 20000
 
 opt.pumheight = 10
 opt.pumborder = "rounded"
-
-vim.diagnostic.config({virtual_text = true}) -- inline diagnostics
