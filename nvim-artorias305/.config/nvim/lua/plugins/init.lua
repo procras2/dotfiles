@@ -14,6 +14,7 @@ require("plugins._which-key")
 require("plugins._vimtex")
 require("plugins._marks-nvim")
 require("plugins._nvim-navic")
+require("plugins._nvim-navbuddy")
 require("plugins._indent-blankline-nvim")
 require("plugins._oil")
 require("plugins._toggleterm-nvim")
@@ -23,3 +24,10 @@ require("plugins._toggle-checkbox-nvim")
 require("plugins._trouble-nvim")
 require("plugins._nvim-treesitter")
 require("plugins._nvim-treesitter-textobjects")
+
+vim.lsp.config("phpactor", {
+	on_attach = function(client, bufnr)
+		require("nvim-navic").attach(client, bufnr)
+		require("nvim-navbuddy").attach(client, bufnr)
+	end,
+})

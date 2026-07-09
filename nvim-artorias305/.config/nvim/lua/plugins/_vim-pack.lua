@@ -36,6 +36,8 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/SmiteshP/nvim-navic" },
+	{ src = "https://github.com/MunifTanjim/nui.nvim" }, -- Required by nvim-navbuddy
+	{ src = "https://github.com/hasansujon786/nvim-navbuddy" }, -- fork from SmitheshP
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
