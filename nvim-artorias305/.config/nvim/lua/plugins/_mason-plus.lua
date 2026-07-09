@@ -8,7 +8,7 @@ require("mason-tool-installer").setup({
 		"marksman",
 		"texlab",
 		"phpactor",
-		"stylua",
+		-- "stylua",
 		"prettierd",
 		"phpcbf",
 	},

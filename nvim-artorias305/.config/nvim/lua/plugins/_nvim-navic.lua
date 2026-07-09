@@ -1,11 +1,13 @@
 -- nvim-navic
-require('nvim-navic').setup({})
+require("nvim-navic").setup({})
 
 vim.lsp.config("phpactor", {
-    on_attach = function(client, bufnr)
-        require("nvim-navic").attach(client, bufnr)
-    end
+	on_attach = function(client, bufnr)
+		require("nvim-navic").attach(client, bufnr)
+	end,
 })
+
+vim.o.winbar = "%t%{%v:lua.require'nvim-navic'.get_location()%}"
 --
 -- vim.lsp.config("clangd", {
 --     on_attach = function(client, bufnr)

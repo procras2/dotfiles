@@ -1,7 +1,7 @@
 require("functions.highlight_on_yank")
 require("functions.return_to_last_cursor_position")
 require("functions.wrap_linebreak_spell_md_txt")
-require("functions.show_lsp_progress")
+-- require("functions.show_lsp_progress")
 require("functions.my.multicursor")
 
 --
@@ -31,3 +31,5 @@ local function pack_clean()
 		vim.pack.del(unused_plugins)
 	end
 end
+
+-- pack_clean()

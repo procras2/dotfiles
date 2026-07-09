@@ -18,7 +18,8 @@ opt.signcolumn = "yes"
 -- opt.colorcolumn = "100"
 opt.showmatch = true
 opt.cmdheight = 1
-opt.showmode = false
+-- opt.showmode = false
+opt.laststatus = 2
 
 opt.conceallevel = 0
 opt.concealcursor = ""

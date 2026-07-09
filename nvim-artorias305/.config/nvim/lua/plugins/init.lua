@@ -8,7 +8,7 @@ require("plugins._mason-plus") --LSP stuff
 require("plugins._conform-nvim") -- formatting and linting
 require("plugins._luasnip")
 require("plugins._blink-cmp")
-require("plugins._lualine-nvim")
+-- require("plugins._lualine-nvim")
 require("plugins._mini-plus")
 require("plugins._which-key")
 require("plugins._vimtex")
@@ -23,4 +23,3 @@ require("plugins._toggle-checkbox-nvim")
 require("plugins._trouble-nvim")
 require("plugins._nvim-treesitter")
 require("plugins._nvim-treesitter-textobjects")
-
