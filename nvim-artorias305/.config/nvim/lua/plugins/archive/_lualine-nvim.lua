@@ -1,6 +1,10 @@
 -- Lualine
+vim.pack.add({
+    { src = "https://github.com/nvim-lualine/lualine.nvim" },
+})
+
 local winbar = {
-		'%m%4n:%t',
+    '%m%4n:%t',
 }
 
 require('lualine').setup({

@@ -1,3 +1,11 @@
+--
+-- Luasnip
+--
+vim.pack.add({
+    { src = "https://github.com/L3MON4D3/LuaSnip" },
+    { src = "https://github.com/rafamadriz/friendly-snippets" },
+})
+
 -- Set up LuaSnip
 require("luasnip").config.set_config({
 

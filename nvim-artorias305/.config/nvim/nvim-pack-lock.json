@@ -17,6 +17,10 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "efmls-configs-nvim": {
+      "rev": "e872dc195336716b19023b7a4dd9f689352acc8d",
+      "src": "https://github.com/creativenull/efmls-configs-nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -28,6 +32,10 @@
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "lsp-format.nvim": {
+      "rev": "e2b4ae87545c1aadebcf1dfc1b5dffe28dcf2ffb",
+      "src": "https://github.com/lukas-reineke/lsp-format.nvim"
     },
     "marks.nvim": {
       "rev": "f353e8c08c50f39e99a9ed474172df7eddd89b72",

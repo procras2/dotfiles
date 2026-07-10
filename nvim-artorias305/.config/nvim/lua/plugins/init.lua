@@ -1,15 +1,43 @@
--- Load the plugins into vim using vim-pack native to nvim 0.12
-require("plugins._vim-pack")
+--
+-- Pack add plugins and configure them
+--
 
--- Configure the plugins we have loaded
+--
+-- Colorscheme
+--
 require("plugins._tokyonight-nvim")
-require("plugins._nvim-highlight")
-require("plugins._mason-plus") --LSP stuff
-require("plugins._conform-nvim") -- formatting and linting
-require("plugins._luasnip")
-require("plugins._blink-cmp")
+
+--
+-- Hightlight colors in css etc
+--
+require("plugins._nvim-highlight-colors")
+
+--
+-- Nice statusline
+--
 -- require("plugins._lualine-nvim")
-require("plugins._mini-plus")
+
+--
+--LSP stuff
+--
+require("plugins._mason-etc")
+
+--
+-- Formatting and Linting
+--
+-- require("plugins._conform-nvim")
+
+--
+-- Snips
+--
+require("plugins._luasnip")
+
+--
+-- Autocompletion
+--
+require("plugins._blink-cmp")
+
+require("plugins._mini-etc")
 require("plugins._which-key")
 require("plugins._vimtex")
 require("plugins._marks-nvim")
@@ -24,10 +52,3 @@ require("plugins._toggle-checkbox-nvim")
 require("plugins._trouble-nvim")
 require("plugins._nvim-treesitter")
 require("plugins._nvim-treesitter-textobjects")
-
-vim.lsp.config("phpactor", {
-	on_attach = function(client, bufnr)
-		require("nvim-navic").attach(client, bufnr)
-		require("nvim-navbuddy").attach(client, bufnr)
-	end,
-})

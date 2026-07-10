@@ -1,4 +1,10 @@
--- render-markdown
+--
+-- Render-markdown
+--
+vim.pack.add({
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+})
+
 require("render-markdown").setup({
-    completions = {lsp = {enabled = true}},
+    completions = { lsp = { enabled = true } },
 })
