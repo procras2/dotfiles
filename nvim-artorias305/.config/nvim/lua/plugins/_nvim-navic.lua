@@ -1,7 +1,7 @@
 -- nvim-navic
 require("nvim-navic").setup({})
 
-vim.o.winbar = "%t%{%v:lua.require'nvim-navic'.get_location()%}"
+vim.o.winbar = "%n %t %m %{%v:lua.require'nvim-navic'.get_location()%}"
 --
 -- vim.lsp.config("clangd", {
 --     on_attach = function(client, bufnr)

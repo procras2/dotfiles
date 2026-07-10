@@ -12,6 +12,9 @@ vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>")
 
+-- Here we define a keymap to select all the items in the Picker and send them to quickfix
+-- Or
+-- You can select the ones you want and the press <M-cr>
 local choose_all = function()
 	local mappings = MiniPick.get_picker_opts().mappings
 	vim.api.nvim_input(mappings.mark_all .. mappings.choose_marked)
