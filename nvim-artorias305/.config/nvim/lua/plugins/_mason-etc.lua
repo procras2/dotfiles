@@ -103,17 +103,19 @@ vim.pack.add({
 --
 -- local languages = require('efmls-configs.defaults').languages()
 local languages = require("efmls-configs.defaults").languages()
+
 languages = vim.tbl_extend("force", languages, {
 	-- you custom languages, or overrides
-	javascript = {
-		require("efmls-configs.formatters.prettier"),
-	},
+	-- javascript = {
+	-- 	require("efmls-configs.formatters.prettier"),
+	-- },
 	markdown = {
 		require("efmls-configs.formatters.prettier"),
+		require("efmls-configs.linters.markdownlint"),
 	},
-	php = {
-		require("efmls-configs.formatters.phpcbf"),
-	},
+	-- php = {
+	-- 	require("efmls-configs.formatters.phpcbf"),
+	-- },
 })
 
 local efmls_config = {
