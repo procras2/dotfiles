@@ -15,8 +15,8 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
 --
 -- Tab switching
 --
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>>", ":bnext<CR>", { desc = "[>] Next buffer" })
+vim.keymap.set("n", "<leader><", ":bprevious<CR>", { desc = "[<] Previous buffer" })
 vim.keymap.set("n", "<leader><Tab>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 require("config.keymaps.filters")

@@ -1,4 +1,11 @@
 set synctex true
-#set synctex-editor-command "vim --remote-silent +%{line} %{input}"
-set synctex-editor-command "emacsclient +%{line} %{input}"
+# set synctex-editor-command "vim --remote-silent +%{line} %{input}"
+set synctex-editor-command "nvim --remote-silent +%{line} %{input}"
+# set synctex-editor-command "emacsclient +%{line} %{input}"
 set database "sqlite"
+
+set highlight-active-color "#ffffff"
+set hightlight-transparency 1
+set default-bg rgba(0,0.0,0.7)
+set recolor-lightcolo rgba(0,0,0,0)
+set guioptions "none"

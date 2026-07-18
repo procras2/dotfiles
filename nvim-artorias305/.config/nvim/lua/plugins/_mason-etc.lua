@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"phpactor",
 		"stylua",
 		"texlab",
+		"ltex",
 		"ts_ls",
 		"efm",
 	},
@@ -69,6 +70,7 @@ vim.lsp.config("phpactor", { on_attach = on_attach })
 vim.lsp.config("stylua", {})
 
 vim.lsp.config("texlab", { on_attach = on_attach })
+vim.lsp.config("ltex", { on_attach = on_attach })
 
 vim.lsp.config("ts_ls", { on_attach = on_attach })
 
@@ -162,19 +164,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --
 -- To be sure enable your LSP, I think this is not needed as Mason does it
 --
-vim.lsp.enable({
-	"bashls",
-	"clangd",
-	"emmet_ls",
-	"eslint",
-	"lua_ls",
-	"marksman",
-	"phpactor",
-	"stylua",
-	"texlab",
-	"ts_ls",
-	"efm",
-})
+local enable = vim.lsp.enable
+
+enable("bashls", true)
+enable("clangd", true)
+enable("emmet_ls", true)
+enable("eslint", true)
+enable("lua_ls", true)
+enable("marksman", true)
+enable("phpactor", true)
+enable("stylua", true)
+enable("texlab", true)
+-- enable("ts_ls", true)
+enable("efm", true)
 
 --
 -- LSP keymaps (not already set)

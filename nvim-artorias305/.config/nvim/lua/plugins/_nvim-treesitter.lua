@@ -2,12 +2,23 @@
 -- Treesitter
 --
 vim.pack.add({
-    {
-        src = "https://github.com/nvim-treesitter/nvim-treesitter",
-        branch = "main",
-        build = ":TSUpdate",
-    },
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		build = ":TSUpdate",
+	},
 })
+
+require("nvim-treesitter.config").setup {
+	highlight = {
+		enable = true,
+		disable = { "latex" },
+	},
+	indent = {
+		enable = true,
+		disable = { "latex" },
+	},
+}
 
 -- OLD FOLDING NOTES:
 -- vim.opt.foldmethod			= 'expr'
@@ -52,48 +63,47 @@ vim.pack.add({
 -- vim.cmd[[filetype indent off]]
 -- vim.cmd[[set indentexpr=nvim_treesitter#indent()]]
 
-
 -- PARSERS TO INSTALL
 local parsers = {
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "diff",
-    "dockerfile",
-    "editorconfig",
-    "git_config",
-    "go",
-    "html",
-    "javascript",
-    "json",
-    "lua",
-    "markdown",
-    -- "norg", -- neorg bundles its own parser; not in the standard treesitter registry
-    "powershell",
-    "python",
-    "query",
-    "razor",
-    "regex",
-    "scss",
-    "sql",
-    "tsx",
-    "typescript",
-    "vim",
-    "yaml",
+	"bash",
+	"c",
+	"c_sharp",
+	"cmake",
+	"cpp",
+	"css",
+	"diff",
+	"dockerfile",
+	"editorconfig",
+	"git_config",
+	"go",
+	"html",
+	"javascript",
+	"json",
+	"lua",
+	"markdown",
+	-- "norg", -- neorg bundles its own parser; not in the standard treesitter registry
+	"powershell",
+	"python",
+	"query",
+	"razor",
+	"regex",
+	"scss",
+	"sql",
+	"tsx",
+	"typescript",
+	"vim",
+	"yaml",
 }
 
-require('nvim-treesitter').install(parsers)
+require("nvim-treesitter").install(parsers)
 
 -- ENABLE HIGHLIGHTING AND INDENTATION VIA AUTOCMD
-vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('nvim_treesitter_start', { clear = true }),
-    callback = function(args)
-        if vim.treesitter.get_parser(args.buf, nil, { error = false }) then
-            vim.treesitter.start(args.buf)
-            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	group = vim.api.nvim_create_augroup("nvim_treesitter_start", { clear = true }),
+-- 	callback = function(args)
+-- 		if vim.treesitter.get_parser(args.buf, nil, { error = false }) then
+-- 			vim.treesitter.start(args.buf)
+-- 			vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+-- 		end
+-- 	end,
+-- })
