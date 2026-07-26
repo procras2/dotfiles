@@ -400,12 +400,15 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
-
 -- Touchpad
 -- Pad on
 hl.bind(mainMod .. "+ T", hl.dsp.exec_cmd([[ hyprctl eval "hl.device({ name = 'elan-touchpad', enabled = true})"]]))
 -- Pad off
-hl.bind(mainMod .. "+ SHIFT + T", hl.dsp.exec_cmd([[ hyprctl eval "hl.device({ name = 'elan-touchpad', enabled = false})"]]))
+hl.bind(
+	mainMod .. "+ SHIFT + T",
+	hl.dsp.exec_cmd([[ hyprctl eval "hl.device({ name = 'elan-touchpad', enabled = false})"]])
+)
+-- hyprctl notify -1 10000 "rgb(ff1ea3)" "hello"
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----

@@ -14,6 +14,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"bashls",
 		"clangd",
+		"cssls",
 		"emmet_ls",
 		"eslint",
 		"lua_ls",
@@ -45,8 +46,9 @@ end
 --
 -- Extra config for language servers
 --
+vim.lsp.config("cssls", { on_attach = on_attach })
+
 vim.lsp.config("emmet_ls", {
-	on_attach = on_attach,
 	filetypes = { "htmldjango", "djangohtml", "html" },
 })
 
@@ -70,7 +72,8 @@ vim.lsp.config("phpactor", { on_attach = on_attach })
 vim.lsp.config("stylua", {})
 
 vim.lsp.config("texlab", { on_attach = on_attach })
-vim.lsp.config("ltex", { on_attach = on_attach })
+
+vim.lsp.config("ltex", {})
 
 vim.lsp.config("ts_ls", { on_attach = on_attach })
 
@@ -168,6 +171,7 @@ local enable = vim.lsp.enable
 
 enable("bashls", true)
 enable("clangd", true)
+enable("cssls", true)
 enable("emmet_ls", true)
 enable("eslint", true)
 enable("lua_ls", true)
