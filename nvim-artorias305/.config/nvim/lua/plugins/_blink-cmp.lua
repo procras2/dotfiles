@@ -69,7 +69,7 @@ require("blink.cmp").setup({
 
 		-- Setup completion by filetype
 		per_filetype = {
-			text = { "dictionary" },
+			text = { "dictionary", "snippets" },
 			markdown = { "thesaurus", "lsp", "path", "buffer", "snippets" },
 		},
 	},

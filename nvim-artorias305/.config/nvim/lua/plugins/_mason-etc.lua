@@ -73,7 +73,9 @@ vim.lsp.config("stylua", {})
 
 vim.lsp.config("texlab", { on_attach = on_attach })
 
-vim.lsp.config("ltex", {})
+vim.lsp.config("ltex", {
+	filetypes = { "tex", "markdown" },
+})
 
 vim.lsp.config("ts_ls", { on_attach = on_attach })
 
