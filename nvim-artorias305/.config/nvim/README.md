@@ -20,3 +20,7 @@ Reference TreeSitter set up and others from
 
 He is using lazy vim for the loading but it is easy to adapt to the native
 package manager in vim 0.12 on
+
+## Duy NG
+
+- [Duy NG](https://tduyng.com/blog/vim-pack-and-snacks/)
