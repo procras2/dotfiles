@@ -40,7 +40,7 @@ require("mason-lspconfig").setup({
 --
 local on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
-	require("nvim-navbuddy").attach(client, bufnr)
+	-- require("nvim-navbuddy").attach(client, bufnr)
 end
 
 --

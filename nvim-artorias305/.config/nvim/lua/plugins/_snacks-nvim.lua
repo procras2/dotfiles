@@ -16,7 +16,7 @@ Snacks.setup({
 	dashboard = {
 		enabled = true,
 		sections = {
-			{ section = "header" },
+			-- { section = "header" },
 			-- {
 			-- 	pane = 2,
 			-- 	section = "terminal",

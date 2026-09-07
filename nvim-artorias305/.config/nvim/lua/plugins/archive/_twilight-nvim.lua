@@ -1,5 +1,5 @@
 --
--- Which-key
+-- Twilight
 --
 vim.pack.add({
 	{ src = "https://github.com/folke/twilight.nvim" },

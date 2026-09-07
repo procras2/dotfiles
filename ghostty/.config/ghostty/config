@@ -28,6 +28,10 @@
 # font-family = Iosevka
 font-family = JetBrainsMono Nerd Font
 font-size = 20
+
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
 # background-opacity = 0.8
 # window-padding-x = 2
 #

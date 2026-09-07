@@ -1,5 +1,5 @@
 --
--- Which-key
+-- Zen Mode
 --
 vim.pack.add({
 	{ src = "https://github.com/folke/zen-mode.nvim" },
