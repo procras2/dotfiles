@@ -27,8 +27,13 @@ hl.monitor({
 	position = "auto",
 	scale = "1.0",
 })
-
-require("monitors")
+-- Azorpa protable monitor
+hl.monitor({
+	output = "DP-1",
+	mode = "preferred",
+	position = "auto",
+	scale = "1.0",
+})
 
 -- BENQ in Kilsheelan
 -- hl.monitor({
