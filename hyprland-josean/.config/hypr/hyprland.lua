@@ -99,6 +99,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("playerctl daemon")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 28")
+	hl.exec_cmd("hypridle")
 end)
 
 -------------------------------
