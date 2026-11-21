@@ -297,3 +297,8 @@ export RANGER_LOAD_DEFAULT_RC=false
 # eval "$(oh-my-posh --init --shell bash --config /usr/share/oh-my-posh/themes/takuya.omp.json)" 
 
 umask 002
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/adrian/.lmstudio/bin"
+# End of LM Studio CLI section
+
