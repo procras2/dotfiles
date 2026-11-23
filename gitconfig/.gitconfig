@@ -1,8 +1,10 @@
 [user]
 	email = procras2@gmail.com
-	name = Adrian P. Ireland
+	name = procras2
 	user = procras2
 [core]
-	editor = emacs
+	editor = nvim
 [credential]
 	helper = store --file ~/.git-credentials
+[init]
+	defaultBranch = main

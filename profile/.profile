@@ -15,3 +15,8 @@ fi
 if uwsm check may-start && uwsm select; then
   exec systemd-cat -t uwsm_start uwsm start default
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/adrian/.lmstudio/bin"
+# End of LM Studio CLI section
+
